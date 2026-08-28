@@ -1,0 +1,1172 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-arrc-50: #eff6ff;
+  --color-arrc-100: #dbeafe;
+  --color-arrc-200: #bfdbfe;
+  --color-arrc-300: #93c5fd;
+  --color-arrc-400: #60a5fa;
+  --color-arrc-500: #3b82f6;
+  --color-arrc-600: #2563eb;
+  --color-arrc-700: #1d4ed8;
+  --color-arrc-800: #1e40af;
+  --color-arrc-900: #1e3a8a;
+  --color-arrc-950: #0a1628;
+  --color-arrc-gold: #d4a843;
+  --font-heading: var(--font-heading);
+  --color-arrc-emerald: #007749;
+  --color-arrc-emerald-light: #00a86b;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.4 0.18 260);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0.01 260);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.4 0.18 260);
+  --chart-1: oklch(0.4 0.18 260);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.4 0.18 260);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.13 0.02 260);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.17 0.03 260);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.17 0.03 260);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.55 0.2 260);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.22 0.03 260);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.22 0.03 260);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.22 0.03 260);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.55 0.2 260);
+  --chart-1: oklch(0.55 0.2 260);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.17 0.03 260);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.55 0.2 260);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.22 0.03 260);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar — gold/arrc themed */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 168, 67, 0.3);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 168, 67, 0.55);
+}
+
+/* SA flag stripe */
+.sa-stripe {
+  background: linear-gradient(90deg, #007749 0%, #007749 20%, #FFFFFF 20%, #FFFFFF 40%, #FFB81C 40%, #FFB81C 60%, #DE3831 60%, #DE3831 80%, #002395 80%, #002395 100%);
+  height: 6px;
+}
+
+/* African geometric pattern — Ndebele/Zulu-inspired (single definition, see below) */
+
+/* Gold underline slide-in animation */
+@keyframes gold-underline-in {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+.gold-underline-hover:hover .gold-underline {
+  animation: gold-underline-in 0.3s ease-out forwards;
+}
+
+/* Hero overlay with depth */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.92) 0%, rgba(30, 64, 175, 0.80) 50%, rgba(10, 22, 40, 0.88) 100%);
+}
+
+/* 3D perspective container */
+.perspective-container {
+  perspective: 1200px;
+}
+
+/* 3D card tilt */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+}
+
+.tilt-card:hover {
+  transform: translateZ(20px);
+}
+
+/* Glassmorphism — refined with warmer tones */
+.glass {
+  background: rgba(255, 248, 230, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 168, 67, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.glass-dark {
+  background: rgba(10, 22, 40, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 67, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(212, 168, 67, 0.5); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Gradient text — vibrant gold */
+.gradient-text {
+  background: linear-gradient(135deg, #b8860b 0%, #d4a843 20%, #f7e7a0 40%, #d4a843 55%, #f0d68a 70%, #c49a2a 85%, #d4a843 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(212, 168, 67, 0.3));
+}
+
+/* Particle canvas */
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+  50% { transform: translateY(-35px) translateX(-5px); opacity: 0.5; }
+  75% { transform: translateY(-15px) translateX(15px); opacity: 0.7; }
+}
+
+/* (removed duplicate — african-pattern is defined once below in the design system section) */
+
+/* Pulsing gold ring */
+@keyframes gold-ring-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,67,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(212,168,67,0); }
+}
+.animate-gold-ring-pulse {
+  animation: gold-ring-pulse 2s ease-in-out infinite;
+}
+
+/* 3D depth shadow */
+.depth-shadow {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 20px 25px -5px rgba(0, 0, 0, 0.06),
+    0 0 40px -10px rgba(212, 168, 67, 0.15);
+}
+
+/* ===== African-Inspired Design System ===== */
+
+/* African geometric pattern — Ndebele/Zulu inspired diamond weave (canonical definition) */
+.african-pattern {
+  background-image:
+    linear-gradient(135deg, rgba(212, 168, 67, 0.04) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(212, 168, 67, 0.04) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(212, 168, 67, 0.03) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(212, 168, 67, 0.03) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 20px 0, 20px 0, 0 0, 0 0;
+}
+
+/* Decorative section separator — gold line with diamond */
+.section-divider {
+  position: relative;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 67, 0.4) 20%, rgba(212, 168, 67, 0.6) 50%, rgba(212, 168, 67, 0.4) 80%, transparent 100%);
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 400px;
+}
+.section-divider::before {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #d4a843;
+  font-size: 12px;
+  line-height: 1;
+  background: inherit;
+  background: transparent;
+  text-shadow: 0 0 8px rgba(212, 168, 67, 0.5);
+}
+
+/* Rich section backgrounds */
+.bg-arrc-dark-section {
+  background: linear-gradient(160deg, #0a1628 0%, #0f2040 100%);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(212, 168, 67, 0.015) 40px,
+      rgba(212, 168, 67, 0.015) 41px
+    ),
+    linear-gradient(160deg, #0a1628 0%, #0f2040 100%);
+}
+
+.bg-arrc-warm-section {
+  background: linear-gradient(180deg, #faf8f2 0%, #f5f0e8 100%);
+}
+
+.bg-arrc-gold-section {
+  background: linear-gradient(180deg, #fdf9ef 0%, #faf5e4 100%);
+}
+
+/* Gold border glow effect */
+.gold-border-glow {
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  box-shadow:
+    0 0 8px rgba(212, 168, 67, 0.15),
+    0 0 20px rgba(212, 168, 67, 0.08),
+    inset 0 0 8px rgba(212, 168, 67, 0.05);
+  animation: gold-border-pulse 4s ease-in-out infinite;
+}
+@keyframes gold-border-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(212, 168, 67, 0.15),
+      0 0 20px rgba(212, 168, 67, 0.08),
+      inset 0 0 8px rgba(212, 168, 67, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(212, 168, 67, 0.3),
+      0 0 30px rgba(212, 168, 67, 0.15),
+      inset 0 0 12px rgba(212, 168, 67, 0.08);
+  }
+}
+
+/* Entrance animation */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s ease-out both;
+}
+
+/* Gold shimmer for text */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.gold-shimmer-text {
+  background: linear-gradient(90deg, #d4a843 0%, #f7e7a0 25%, #d4a843 50%, #f0d68a 75%, #d4a843 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 4s linear infinite;
+}
+
+/* Subtle breathing scale */
+@keyframes subtle-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+.animate-subtle-breathe {
+  animation: subtle-breathe 6s ease-in-out infinite;
+}
+
+/* Premium heading font — serif */
+.font-heading {
+  font-family: var(--font-heading), 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Dramatic section separator — African-inspired with geometric diamond shapes */
+.section-separator {
+  position: relative;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.section-separator::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212,168,67,0.15) 10%, rgba(212,168,67,0.4) 35%, rgba(212,168,67,0.6) 50%, rgba(212,168,67,0.4) 65%, rgba(212,168,67,0.15) 90%, transparent 100%);
+}
+.section-separator::after {
+  content: '◆  ◆  ◆';
+  position: relative;
+  z-index: 1;
+  color: #d4a843;
+  font-size: 6px;
+  letter-spacing: 8px;
+  background: inherit;
+  padding: 0 20px;
+  text-shadow: 0 0 8px rgba(212,168,67,0.4);
+}
+
+/* Dark section separator variant */
+.section-separator-dark {
+  background: #0a1628;
+}
+
+/* Light section separator variant */
+.section-separator-light {
+  background: #faf8f2;
+}
+
+/* Premium photo frame effect */
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(212,168,67,0.2);
+  border-radius: 0.75rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(10,22,40,0.6), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Premium card with layered shadow */
+.card-premium {
+  background: white;
+  border-radius: 1rem;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 8px rgba(0,0,0,0.04),
+    0 12px 24px rgba(0,0,0,0.06),
+    0 24px 48px rgba(0,0,0,0.04);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.card-premium:hover {
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.04),
+    0 8px 16px rgba(0,0,0,0.06),
+    0 20px 40px rgba(0,0,0,0.08),
+    0 32px 64px rgba(0,0,0,0.06),
+    0 0 0 1px rgba(212,168,67,0.15);
+  transform: translateY(-4px);
+}
+
+/* Card premium dark variant */
+.card-premium-dark {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 1rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.2),
+    0 0 40px rgba(212,168,67,0.05);
+  transition: all 0.4s ease;
+}
+.card-premium-dark:hover {
+  border-color: rgba(212,168,67,0.25);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.3),
+    0 0 60px rgba(212,168,67,0.1);
+  transform: translateY(-4px);
+}
+
+/* Heading accent — gold gradient underline */
+.heading-accent {
+  position: relative;
+  display: inline-block;
+}
+.heading-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a843, #f7e7a0, #d4a843);
+  border-radius: 2px;
+}
+
+/* Text balance for better typography */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Badge — refined */
+.badge-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Micro-interaction: subtle scale on hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Scroll-triggered reveal animation */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-reveal-up {
+  animation: reveal-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Image zoom effect on hover */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img, .img-zoom > picture img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom:hover img, .img-zoom:hover > picture img {
+  transform: scale(1.08);
+}
+
+/* Focus ring — gold */
+.focus-gold:focus-visible {
+  outline: 2px solid rgba(212,168,67,0.6);
+  outline-offset: 2px;
+}
+
+/* Print styles for membership form */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIQUID GLASS DESIGN SYSTEM v3.0
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Translates the GPU liquid-glass tuning parameters (from the
+   build-webgl-liquid-glass skill) into pure CSS:
+
+     frost: 2.2        → backdrop-filter: blur(24px) saturate(180%)
+     refraction: 0.007  → subtle scale + layered gradient shift on ::before
+     aberration: 0.03   → RGB-split via triple-layered ::after with offset
+     bevelDepth: 0.075  → inset box-shadow (top-left light, bottom-right dark)
+     bevelWidth: 0.18   → padded inset highlight ring via ::before
+     specular: true     → top-edge specular highlight gradient
+     magnify: 1.006     → content scaled 1.006 inside the lens
+
+   Three intensity tiers:
+     .liquid-glass        — default, balanced frost + bevel + specular
+     .liquid-glass-frost  — heavier blur for privacy panels / modals
+     .liquid-glass-clear  — minimal, for nav bars over busy backgrounds
+
+   Plus dark-mode variants that use navy-tinted translucency.
+   Every surface has a @supports fallback for browsers without backdrop-filter.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Liquid Glass: default tier (balanced) ── */
+.liquid-glass {
+  position: relative;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1.25rem;
+  box-shadow:
+    /* bevel depth — top-left light, bottom-right dark */
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.08),
+    inset 1px 0 1px rgba(255, 255, 255, 0.12),
+    inset -1px 0 1px rgba(0, 0, 0, 0.04),
+    /* drop shadow for depth */
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* Specular highlight — top edge light refraction */
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 15%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.05) 85%,
+      rgba(255, 255, 255, 0.15) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Chromatic aberration — subtle RGB split on the border */
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(135deg, rgba(255, 0, 80, 0.025), transparent 30%) border-box,
+    linear-gradient(225deg, rgba(0, 180, 255, 0.025), transparent 30%) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Content above the glass layers */
+.liquid-glass > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Liquid Glass: frost tier (heavier blur for modals/privacy) ── */
+.liquid-glass-frost {
+  position: relative;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(40px) saturate(200%) brightness(1.08);
+  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 1.5rem;
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.1),
+    inset 2px 0 2px rgba(255, 255, 255, 0.15),
+    inset -2px 0 2px rgba(0, 0, 0, 0.05),
+    0 16px 48px rgba(0, 0, 0, 0.18),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.liquid-glass-frost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.12) 20%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.08) 80%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+.liquid-glass-frost > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Liquid Glass: clear tier (minimal, for nav bars) ── */
+.liquid-glass-clear {
+  position: relative;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.liquid-glass-clear::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+.liquid-glass-clear > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Liquid Glass: dark variants (navy-tinted for dark surfaces) ── */
+.liquid-glass-dark {
+  position: relative;
+  isolation: isolate;
+  background: rgba(10, 22, 40, 0.55);
+  backdrop-filter: blur(24px) saturate(160%) brightness(0.95);
+  -webkit-backdrop-filter: blur(24px) saturate(160%) brightness(0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(212, 168, 67, 0.04);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.liquid-glass-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.04) 20%,
+      transparent 50%,
+      rgba(212, 168, 67, 0.03) 80%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+.liquid-glass-dark::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(135deg, rgba(212, 168, 67, 0.08), transparent 30%) border-box,
+    linear-gradient(225deg, rgba(100, 160, 255, 0.04), transparent 30%) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+.liquid-glass-dark > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Liquid glass gold-tinted variant (for ARRC premium surfaces) ── */
+.liquid-glass-gold {
+  position: relative;
+  isolation: isolate;
+  background: rgba(212, 168, 67, 0.08);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 1px rgba(247, 231, 160, 0.25),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 0 24px rgba(212, 168, 67, 0.08);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.liquid-glass-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(247, 231, 160, 0.2) 0%,
+    rgba(212, 168, 67, 0.05) 25%,
+    transparent 50%,
+    rgba(212, 168, 67, 0.04) 75%,
+    rgba(247, 231, 160, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+.liquid-glass-gold > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Liquid glass hover enhancement (interactive surfaces) ── */
+.liquid-glass-interactive {
+  cursor: pointer;
+}
+.liquid-glass-interactive:hover {
+  transform: translateY(-2px) scale(1.005);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(212, 168, 67, 0.12);
+}
+.liquid-glass-dark.liquid-glass-interactive:hover,
+.liquid-glass-dark.liquid-glass-interactive:hover {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.16),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.25),
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 48px rgba(212, 168, 67, 0.08),
+    0 0 0 1px rgba(212, 168, 67, 0.15);
+}
+
+/* ── Liquid glass shimmer sweep (on hover, for premium cards) ── */
+.liquid-glass-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.8s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+.liquid-glass-shimmer:hover::after {
+  left: 150%;
+}
+
+/* ── Fallback for browsers without backdrop-filter ── */
+@supports not (backdrop-filter: blur(1px)) {
+  .liquid-glass {
+    background: rgba(245, 240, 232, 0.92);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+  .liquid-glass-frost {
+    background: rgba(250, 248, 242, 0.96);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  }
+  .liquid-glass-clear {
+    background: rgba(255, 255, 255, 0.85);
+  }
+  .liquid-glass-dark {
+    background: rgba(10, 22, 40, 0.92);
+  }
+  .liquid-glass-gold {
+    background: rgba(253, 249, 239, 0.92);
+  }
+  .liquid-glass::before,
+  .liquid-glass-frost::before,
+  .liquid-glass-clear::before,
+  .liquid-glass-dark::before,
+  .liquid-glass-gold::before {
+    display: none;
+  }
+}
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass,
+  .liquid-glass-frost,
+  .liquid-glass-clear,
+  .liquid-glass-dark,
+  .liquid-glass-gold,
+  .liquid-glass-interactive,
+  .liquid-glass-shimmer {
+    transition: none;
+  }
+  .liquid-glass-interactive:hover {
+    transform: none;
+  }
+  .liquid-glass-shimmer::after {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BENTO GRID DESIGN SYSTEM
+   ═══════════════════════════════════════════════════════════════════════════
+
+   A bento grid is a layout of varied-size cells in a uniform grid,
+   popularized by Apple's product pages. Each cell can contain different
+   content types (stats, images, text, video) and spans multiple rows/columns.
+
+   Usage:
+     <div class="bento-grid">
+       <div class="bento-cell bento-wide">…</div>      ← 2 cols
+       <div class="bento-cell bento-tall">…</div>      ← 2 rows
+       <div class="bento-cell bento-large">…</div>     ← 2x2
+       <div class="bento-cell">…</div>                  ← 1x1 (default)
+     </div>
+
+   Variants:
+     .bento-grid-3  — 3-column base (desktop)
+     .bento-grid-4  — 4-column base (desktop, for dense dashboards)
+     .bento-grid-auto — auto-fit minmax (fluid)
+
+   Cell spans:
+     .bento-wide   — span 2 columns
+     .bento-tall   — span 2 rows
+     .bento-large  — span 2 cols × 2 rows
+     .bento-full   — span all columns (full width feature)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Base bento grid (4-column on desktop, responsive down) ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  grid-auto-rows: minmax(140px, auto);
+}
+
+@media (min-width: 640px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    grid-auto-rows: minmax(180px, auto);
+  }
+}
+
+/* ── 3-column variant ── */
+@media (min-width: 1024px) {
+  .bento-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Auto-fit fluid variant ── */
+.bento-grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  grid-auto-rows: minmax(140px, auto);
+}
+@media (min-width: 640px) {
+  .bento-grid-auto {
+    gap: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bento-grid-auto {
+    gap: 1.5rem;
+    grid-auto-rows: minmax(180px, auto);
+  }
+}
+
+/* ── Bento cells ── */
+.bento-cell {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Cell spans (apply at lg breakpoint where multi-col kicks in) ── */
+@media (min-width: 1024px) {
+  .bento-wide {
+    grid-column: span 2;
+  }
+  .bento-tall {
+    grid-row: span 2;
+  }
+  .bento-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .bento-full {
+    grid-column: 1 / -1;
+  }
+  .bento-wide-3 {
+    grid-column: span 3;
+  }
+}
+
+/* ── Bento cell content alignment helpers ── */
+.bento-cell-center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.bento-cell-start {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.bento-cell-end {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.bento-cell-between {
+  justify-content: space-between;
+}
+
+/* ── Bento stat cell (for dashboard metrics) ── */
+.bento-stat {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.bento-stat-value {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  font-family: var(--font-heading), 'Cormorant Garamond', Georgia, serif;
+}
+.bento-stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+}
+.bento-stat-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Bento entrance animation (staggered) ── */
+@keyframes bento-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.bento-cell {
+  animation: bento-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.bento-cell:nth-child(1) { animation-delay: 0.05s; }
+.bento-cell:nth-child(2) { animation-delay: 0.1s; }
+.bento-cell:nth-child(3) { animation-delay: 0.15s; }
+.bento-cell:nth-child(4) { animation-delay: 0.2s; }
+.bento-cell:nth-child(5) { animation-delay: 0.25s; }
+.bento-cell:nth-child(6) { animation-delay: 0.3s; }
+.bento-cell:nth-child(7) { animation-delay: 0.35s; }
+.bento-cell:nth-child(8) { animation-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-cell {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME TOGGLE UTILITY
+   ═══════════════════════════════════════════════════════════════════════════ */
+.theme-toggle {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(212, 168, 67, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.theme-toggle:hover {
+  background: rgba(212, 168, 67, 0.12);
+  transform: scale(1.05);
+}
+.theme-toggle:active {
+  transform: scale(0.95);
+}

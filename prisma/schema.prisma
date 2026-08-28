@@ -1,0 +1,186 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Member {
+  id              String   @id @default(cuid())
+  memberId        String?  @unique @map("member_id")
+  firstName       String   @map("first_name")
+  lastName        String   @map("last_name")
+  idNumber        String   @unique @map("id_number")
+  email           String   @unique
+  phone           String
+  dateOfBirth     String   @map("date_of_birth")
+  gender          String
+  address         String?
+  province        String
+  occupation      String?
+  wardBranch      String?  @map("ward_branch")
+  paymentMethod   String   @default("online") @map("payment_method")
+  paymentStatus   String   @default("pending") @map("payment_status")
+  membershipStatus String  @default("pending") @map("membership_status")
+  cardGenerated   Boolean  @default(false) @map("card_generated")
+  selfieUrl       String?  @map("selfie_url")
+  proofOfPaymentUrl String? @map("proof_of_payment_url")
+  notes           String?
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("members")
+}
+
+model Admin {
+  id           String    @id @default(cuid())
+  username     String    @unique
+  passwordHash String    @map("password_hash")
+  displayName  String?   @map("display_name")
+  role         String    @default("admin")
+  lastLogin    DateTime? @map("last_login")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@map("crm_admins")
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  sessionId String   @map("session_id")
+  role      String
+  content   String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("chat_messages")
+}
+
+model Volunteer {
+  id        String   @id @default(cuid())
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
+  email     String   @unique
+  phone     String
+  province  String
+  interests String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("volunteers")
+}
+
+model Donation {
+  id              String   @id @default(cuid())
+  firstName       String   @map("first_name")
+  lastName        String   @map("last_name")
+  email           String
+  phone           String
+  amount          Float
+  currency        String   @default("ZAR")
+  reference       String?
+  status          String   @default("pending") // pending, completed, failed, refunded
+  paymentMethod   String   @default("eft") @map("payment_method") // eft, card, cash, yoco, payfast
+  campaignId      String?  @map("campaign_id")
+  campaignTitle   String?  @map("campaign_title")
+  recurring       Boolean  @default(false)
+  recurringPeriod String?  @map("recurring_period") // monthly, quarterly, annual
+  anonymous       Boolean  @default(false)
+  message         String?
+  receiptSent     Boolean  @default(false) @map("receipt_sent")
+  notes           String?
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("donations")
+}
+
+model ContentItem {
+  id          String   @id @default(cuid())
+  type        String   // event, news, policy, leader, gallery, video, faq, value, document
+  title       String
+  subtitle    String?
+  description String?
+  content     String?
+  imageUrl    String?  @map("image_url")
+  category    String?
+  date        String?
+  location    String?
+  status      String   @default("draft") // draft, published, archived
+  featured    Boolean  @default(false)
+  sortOrder   Int      @default(0) @map("sort_order")
+  metadata    String?  // JSON string for type-specific fields
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("content_items")
+}
+
+model MembershipCard {
+  id                String    @id @default(cuid())
+  cardNumber        String    @unique @map("card_number")
+  memberId          String    @unique @map("member_id") // links to Supabase member UUID
+  memberName        String    @map("member_name")
+  memberSurname     String    @map("member_surname")
+  memberGender      String    @default("") @map("member_gender")
+  memberDateOfBirth String?   @map("member_date_of_birth")
+  memberIdNumber    String?   @map("member_id_number")
+  memberProvince    String    @map("member_province")
+  memberWardBranch  String?   @map("member_ward_branch")
+  memberOccupation  String?   @map("member_occupation")
+  memberEmail       String?   @map("member_email")
+  memberPhone       String?   @map("member_phone")
+  memberAddress     String?   @map("member_address")
+  memberSelfieUrl   String?   @map("member_selfie_url")
+  status            String    @default("active") // active, expired, revoked, pending
+  cardType          String    @default("standard") @map("card_type") // standard, premium, honorary
+  issueDate         DateTime  @default(now()) @map("issue_date")
+  expiryDate        DateTime? @map("expiry_date")
+  generatedBy       String?   @map("generated_by") // admin who generated
+  notes             String?
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  @@map("membership_cards")
+}
+
+model Campaign {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  summary       String
+  description   String?
+  imageUrl      String?  @map("image_url")
+  category      String   @default("general") // general, crime, water, jobs, education, health, community
+  status        String   @default("active") // active, completed, archived
+  goalAmount    Float    @default(0) @map("goal_amount")
+  raisedAmount  Float    @default(0) @map("raised_amount")
+  supporterGoal Int      @default(0) @map("supporter_goal")
+  supporterCount Int     @default(0) @map("supporter_count")
+  featured      Boolean  @default(false)
+  sortOrder     Int      @default(0) @map("sort_order")
+  startDate     DateTime? @map("start_date")
+  endDate       DateTime? @map("end_date")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("campaigns")
+}
+
+model NewsletterSubscriber {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  fullName       String?   @map("full_name")
+  consentProcessing Boolean @default(true) @map("consent_processing")
+  consentMarketing  Boolean @default(false) @map("consent_marketing")
+  status         String    @default("active") // active, unsubscribed, bounced
+  source         String    @default("website") // website, campaign, event
+  confirmToken   String?   @map("confirm_token")
+  confirmedAt    DateTime? @map("confirmed_at")
+  unsubscribedAt DateTime? @map("unsubscribed_at")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  @@map("newsletter_subscribers")
+}

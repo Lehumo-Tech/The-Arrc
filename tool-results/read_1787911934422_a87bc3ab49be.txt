@@ -1,0 +1,1173 @@
+     1→     1→@import "tailwindcss";
+     2→     2→@import "tw-animate-css";
+     3→     3→
+     4→     4→@custom-variant dark (&:is(.dark *));
+     5→     5→
+     6→     6→@theme inline {
+     7→     7→  --color-background: var(--background);
+     8→     8→  --color-foreground: var(--foreground);
+     9→     9→  --font-sans: var(--font-geist-sans);
+    10→    10→  --font-mono: var(--font-geist-mono);
+    11→    11→  --color-sidebar-ring: var(--sidebar-ring);
+    12→    12→  --color-sidebar-border: var(--sidebar-border);
+    13→    13→  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    14→    14→  --color-sidebar-accent: var(--sidebar-accent);
+    15→    15→  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    16→    16→  --color-sidebar-primary: var(--sidebar-primary);
+    17→    17→  --color-sidebar-foreground: var(--sidebar-foreground);
+    18→    18→  --color-sidebar: var(--sidebar);
+    19→    19→  --color-chart-5: var(--chart-5);
+    20→    20→  --color-chart-4: var(--chart-4);
+    21→    21→  --color-chart-3: var(--chart-3);
+    22→    22→  --color-chart-2: var(--chart-2);
+    23→    23→  --color-chart-1: var(--chart-1);
+    24→    24→  --color-ring: var(--ring);
+    25→    25→  --color-input: var(--input);
+    26→    26→  --color-border: var(--border);
+    27→    27→  --color-destructive: var(--destructive);
+    28→    28→  --color-accent-foreground: var(--accent-foreground);
+    29→    29→  --color-accent: var(--accent);
+    30→    30→  --color-muted-foreground: var(--muted-foreground);
+    31→    31→  --color-muted: var(--muted);
+    32→    32→  --color-secondary-foreground: var(--secondary-foreground);
+    33→    33→  --color-secondary: var(--secondary);
+    34→    34→  --color-primary-foreground: var(--primary-foreground);
+    35→    35→  --color-primary: var(--primary);
+    36→    36→  --color-popover-foreground: var(--popover-foreground);
+    37→    37→  --color-popover: var(--popover);
+    38→    38→  --color-card-foreground: var(--card-foreground);
+    39→    39→  --color-card: var(--card);
+    40→    40→  --radius-sm: calc(var(--radius) - 4px);
+    41→    41→  --radius-md: calc(var(--radius) - 2px);
+    42→    42→  --radius-lg: var(--radius);
+    43→    43→  --radius-xl: calc(var(--radius) + 4px);
+    44→    44→  --color-arrc-50: #eff6ff;
+    45→    45→  --color-arrc-100: #dbeafe;
+    46→    46→  --color-arrc-200: #bfdbfe;
+    47→    47→  --color-arrc-300: #93c5fd;
+    48→    48→  --color-arrc-400: #60a5fa;
+    49→    49→  --color-arrc-500: #3b82f6;
+    50→    50→  --color-arrc-600: #2563eb;
+    51→    51→  --color-arrc-700: #1d4ed8;
+    52→    52→  --color-arrc-800: #1e40af;
+    53→    53→  --color-arrc-900: #1e3a8a;
+    54→    54→  --color-arrc-950: #0a1628;
+    55→    55→  --color-arrc-gold: #d4a843;
+    56→    56→  --font-heading: var(--font-heading);
+    57→    57→  --color-arrc-emerald: #007749;
+    58→    58→  --color-arrc-emerald-light: #00a86b;
+    59→    59→}
+    60→    60→
+    61→    61→:root {
+    62→    62→  --radius: 0.625rem;
+    63→    63→  --background: oklch(1 0 0);
+    64→    64→  --foreground: oklch(0.145 0 0);
+    65→    65→  --card: oklch(1 0 0);
+    66→    66→  --card-foreground: oklch(0.145 0 0);
+    67→    67→  --popover: oklch(1 0 0);
+    68→    68→  --popover-foreground: oklch(0.145 0 0);
+    69→    69→  --primary: oklch(0.4 0.18 260);
+    70→    70→  --primary-foreground: oklch(0.985 0 0);
+    71→    71→  --secondary: oklch(0.97 0 0);
+    72→    72→  --secondary-foreground: oklch(0.205 0 0);
+    73→    73→  --muted: oklch(0.97 0 0);
+    74→    74→  --muted-foreground: oklch(0.556 0 0);
+    75→    75→  --accent: oklch(0.97 0.01 260);
+    76→    76→  --accent-foreground: oklch(0.205 0 0);
+    77→    77→  --destructive: oklch(0.577 0.245 27.325);
+    78→    78→  --border: oklch(0.922 0 0);
+    79→    79→  --input: oklch(0.922 0 0);
+    80→    80→  --ring: oklch(0.4 0.18 260);
+    81→    81→  --chart-1: oklch(0.4 0.18 260);
+    82→    82→  --chart-2: oklch(0.6 0.118 184.704);
+    83→    83→  --chart-3: oklch(0.398 0.07 227.392);
+    84→    84→  --chart-4: oklch(0.828 0.189 84.429);
+    85→    85→  --chart-5: oklch(0.769 0.188 70.08);
+    86→    86→  --sidebar: oklch(0.985 0 0);
+    87→    87→  --sidebar-foreground: oklch(0.145 0 0);
+    88→    88→  --sidebar-primary: oklch(0.4 0.18 260);
+    89→    89→  --sidebar-primary-foreground: oklch(0.985 0 0);
+    90→    90→  --sidebar-accent: oklch(0.97 0 0);
+    91→    91→  --sidebar-accent-foreground: oklch(0.205 0 0);
+    92→    92→  --sidebar-border: oklch(0.922 0 0);
+    93→    93→  --sidebar-ring: oklch(0.708 0 0);
+    94→    94→}
+    95→    95→
+    96→    96→.dark {
+    97→    97→  --background: oklch(0.13 0.02 260);
+    98→    98→  --foreground: oklch(0.985 0 0);
+    99→    99→  --card: oklch(0.17 0.03 260);
+   100→   100→  --card-foreground: oklch(0.985 0 0);
+   101→   101→  --popover: oklch(0.17 0.03 260);
+   102→   102→  --popover-foreground: oklch(0.985 0 0);
+   103→   103→  --primary: oklch(0.55 0.2 260);
+   104→   104→  --primary-foreground: oklch(0.985 0 0);
+   105→   105→  --secondary: oklch(0.22 0.03 260);
+   106→   106→  --secondary-foreground: oklch(0.985 0 0);
+   107→   107→  --muted: oklch(0.22 0.03 260);
+   108→   108→  --muted-foreground: oklch(0.708 0 0);
+   109→   109→  --accent: oklch(0.22 0.03 260);
+   110→   110→  --accent-foreground: oklch(0.985 0 0);
+   111→   111→  --destructive: oklch(0.704 0.191 22.216);
+   112→   112→  --border: oklch(1 0 0 / 10%);
+   113→   113→  --input: oklch(1 0 0 / 15%);
+   114→   114→  --ring: oklch(0.55 0.2 260);
+   115→   115→  --chart-1: oklch(0.55 0.2 260);
+   116→   116→  --chart-2: oklch(0.696 0.17 162.48);
+   117→   117→  --chart-3: oklch(0.769 0.188 70.08);
+   118→   118→  --chart-4: oklch(0.627 0.265 303.9);
+   119→   119→  --chart-5: oklch(0.645 0.246 16.439);
+   120→   120→  --sidebar: oklch(0.17 0.03 260);
+   121→   121→  --sidebar-foreground: oklch(0.985 0 0);
+   122→   122→  --sidebar-primary: oklch(0.55 0.2 260);
+   123→   123→  --sidebar-primary-foreground: oklch(0.985 0 0);
+   124→   124→  --sidebar-accent: oklch(0.22 0.03 260);
+   125→   125→  --sidebar-accent-foreground: oklch(0.985 0 0);
+   126→   126→  --sidebar-border: oklch(1 0 0 / 10%);
+   127→   127→  --sidebar-ring: oklch(0.556 0 0);
+   128→   128→}
+   129→   129→
+   130→   130→@layer base {
+   131→   131→  * {
+   132→   132→    @apply border-border outline-ring/50;
+   133→   133→  }
+   134→   134→  body {
+   135→   135→    @apply bg-background text-foreground;
+   136→   136→  }
+   137→   137→}
+   138→   138→
+   139→   139→/* Custom scrollbar — gold/arrc themed */
+   140→   140→.custom-scrollbar::-webkit-scrollbar {
+   141→   141→  width: 6px;
+   142→   142→}
+   143→   143→.custom-scrollbar::-webkit-scrollbar-track {
+   144→   144→  background: transparent;
+   145→   145→}
+   146→   146→.custom-scrollbar::-webkit-scrollbar-thumb {
+   147→   147→  background: rgba(212, 168, 67, 0.3);
+   148→   148→  border-radius: 3px;
+   149→   149→}
+   150→   150→.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+   151→   151→  background: rgba(212, 168, 67, 0.55);
+   152→   152→}
+   153→   153→
+   154→   154→/* SA flag stripe */
+   155→   155→.sa-stripe {
+   156→   156→  background: linear-gradient(90deg, #007749 0%, #007749 20%, #FFFFFF 20%, #FFFFFF 40%, #FFB81C 40%, #FFB81C 60%, #DE3831 60%, #DE3831 80%, #002395 80%, #002395 100%);
+   157→   157→  height: 6px;
+   158→   158→}
+   159→   159→
+   160→   160→/* African geometric pattern — Ndebele/Zulu-inspired (single definition, see below) */
+   161→   161→
+   162→   162→/* Gold underline slide-in animation */
+   163→   163→@keyframes gold-underline-in {
+   164→   164→  from { transform: scaleX(0); transform-origin: left; }
+   165→   165→  to { transform: scaleX(1); transform-origin: left; }
+   166→   166→}
+   167→   167→.gold-underline-hover:hover .gold-underline {
+   168→   168→  animation: gold-underline-in 0.3s ease-out forwards;
+   169→   169→}
+   170→   170→
+   171→   171→/* Hero overlay with depth */
+   172→   172→.hero-overlay {
+   173→   173→  background: linear-gradient(135deg, rgba(10, 22, 40, 0.92) 0%, rgba(30, 64, 175, 0.80) 50%, rgba(10, 22, 40, 0.88) 100%);
+   174→   174→}
+   175→   175→
+   176→   176→/* 3D perspective container */
+   177→   177→.perspective-container {
+   178→   178→  perspective: 1200px;
+   179→   179→}
+   180→   180→
+   181→   181→/* 3D card tilt */
+   182→   182→.tilt-card {
+   183→   183→  transform-style: preserve-3d;
+   184→   184→  transition: transform 0.3s ease-out;
+   185→   185→}
+   186→   186→
+   187→   187→.tilt-card:hover {
+   188→   188→  transform: translateZ(20px);
+   189→   189→}
+   190→   190→
+   191→   191→/* Glassmorphism — refined with warmer tones */
+   192→   192→.glass {
+   193→   193→  background: rgba(255, 248, 230, 0.06);
+   194→   194→  backdrop-filter: blur(20px);
+   195→   195→  -webkit-backdrop-filter: blur(20px);
+   196→   196→  border: 1px solid rgba(212, 168, 67, 0.12);
+   197→   197→  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+   198→   198→}
+   199→   199→
+   200→   200→.glass-dark {
+   201→   201→  background: rgba(10, 22, 40, 0.6);
+   202→   202→  backdrop-filter: blur(20px);
+   203→   203→  -webkit-backdrop-filter: blur(20px);
+   204→   204→  border: 1px solid rgba(255, 255, 255, 0.08);
+   205→   205→}
+   206→   206→
+   207→   207→/* Marquee */
+   208→   208→@keyframes marquee {
+   209→   209→  0% { transform: translateX(0); }
+   210→   210→  100% { transform: translateX(-50%); }
+   211→   211→}
+   212→   212→.animate-marquee {
+   213→   213→  animation: marquee 25s linear infinite;
+   214→   214→}
+   215→   215→
+   216→   216→/* Floating animation */
+   217→   217→@keyframes float {
+   218→   218→  0%, 100% { transform: translateY(0px) rotate(0deg); }
+   219→   219→  50% { transform: translateY(-15px) rotate(1deg); }
+   220→   220→}
+   221→   221→.animate-float {
+   222→   222→  animation: float 4s ease-in-out infinite;
+   223→   223→}
+   224→   224→
+   225→   225→/* Pulse glow */
+   226→   226→@keyframes pulse-glow {
+   227→   227→  0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 67, 0.2); }
+   228→   228→  50% { box-shadow: 0 0 40px rgba(212, 168, 67, 0.5); }
+   229→   229→}
+   230→   230→.animate-pulse-glow {
+   231→   231→  animation: pulse-glow 3s ease-in-out infinite;
+   232→   232→}
+   233→   233→
+   234→   234→/* Shimmer effect */
+   235→   235→@keyframes shimmer {
+   236→   236→  0% { background-position: -200% center; }
+   237→   237→  100% { background-position: 200% center; }
+   238→   238→}
+   239→   239→.animate-shimmer {
+   240→   240→  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+   241→   241→  background-size: 200% 100%;
+   242→   242→  animation: shimmer 3s ease-in-out infinite;
+   243→   243→}
+   244→   244→
+   245→   245→/* Gradient text — vibrant gold */
+   246→   246→.gradient-text {
+   247→   247→  background: linear-gradient(135deg, #b8860b 0%, #d4a843 20%, #f7e7a0 40%, #d4a843 55%, #f0d68a 70%, #c49a2a 85%, #d4a843 100%);
+   248→   248→  -webkit-background-clip: text;
+   249→   249→  -webkit-text-fill-color: transparent;
+   250→   250→  background-clip: text;
+   251→   251→  filter: drop-shadow(0 2px 8px rgba(212, 168, 67, 0.3));
+   252→   252→}
+   253→   253→
+   254→   254→/* Particle canvas */
+   255→   255→@keyframes particle-float {
+   256→   256→  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+   257→   257→  25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+   258→   258→  50% { transform: translateY(-35px) translateX(-5px); opacity: 0.5; }
+   259→   259→  75% { transform: translateY(-15px) translateX(15px); opacity: 0.7; }
+   260→   260→}
+   261→   261→
+   262→   262→/* (removed duplicate — african-pattern is defined once below in the design system section) */
+   263→   263→
+   264→   264→/* Pulsing gold ring */
+   265→   265→@keyframes gold-ring-pulse {
+   266→   266→  0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,67,0.4); }
+   267→   267→  50% { box-shadow: 0 0 0 12px rgba(212,168,67,0); }
+   268→   268→}
+   269→   269→.animate-gold-ring-pulse {
+   270→   270→  animation: gold-ring-pulse 2s ease-in-out infinite;
+   271→   271→}
+   272→   272→
+   273→   273→/* 3D depth shadow */
+   274→   274→.depth-shadow {
+   275→   275→  box-shadow:
+   276→   276→    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+   277→   277→    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+   278→   278→    0 20px 25px -5px rgba(0, 0, 0, 0.06),
+   279→   279→    0 0 40px -10px rgba(212, 168, 67, 0.15);
+   280→   280→}
+   281→   281→
+   282→   282→/* ===== African-Inspired Design System ===== */
+   283→   283→
+   284→   284→/* African geometric pattern — Ndebele/Zulu inspired diamond weave (canonical definition) */
+   285→   285→.african-pattern {
+   286→   286→  background-image:
+   287→   287→    linear-gradient(135deg, rgba(212, 168, 67, 0.04) 25%, transparent 25%),
+   288→   288→    linear-gradient(225deg, rgba(212, 168, 67, 0.04) 25%, transparent 25%),
+   289→   289→    linear-gradient(45deg, rgba(212, 168, 67, 0.03) 25%, transparent 25%),
+   290→   290→    linear-gradient(315deg, rgba(212, 168, 67, 0.03) 25%, transparent 25%);
+   291→   291→  background-size: 40px 40px;
+   292→   292→  background-position: 20px 0, 20px 0, 0 0, 0 0;
+   293→   293→}
+   294→   294→
+   295→   295→/* Decorative section separator — gold line with diamond */
+   296→   296→.section-divider {
+   297→   297→  position: relative;
+   298→   298→  height: 3px;
+   299→   299→  background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 67, 0.4) 20%, rgba(212, 168, 67, 0.6) 50%, rgba(212, 168, 67, 0.4) 80%, transparent 100%);
+   300→   300→  margin: 2rem auto;
+   301→   301→  width: 80%;
+   302→   302→  max-width: 400px;
+   303→   303→}
+   304→   304→.section-divider::before {
+   305→   305→  content: '◆';
+   306→   306→  position: absolute;
+   307→   307→  top: 50%;
+   308→   308→  left: 50%;
+   309→   309→  transform: translate(-50%, -50%);
+   310→   310→  color: #d4a843;
+   311→   311→  font-size: 12px;
+   312→   312→  line-height: 1;
+   313→   313→  background: inherit;
+   314→   314→  background: transparent;
+   315→   315→  text-shadow: 0 0 8px rgba(212, 168, 67, 0.5);
+   316→   316→}
+   317→   317→
+   318→   318→/* Rich section backgrounds */
+   319→   319→.bg-arrc-dark-section {
+   320→   320→  background: linear-gradient(160deg, #0a1628 0%, #0f2040 100%);
+   321→   321→  background-image:
+   322→   322→    repeating-linear-gradient(
+   323→   323→      45deg,
+   324→   324→      transparent,
+   325→   325→      transparent 40px,
+   326→   326→      rgba(212, 168, 67, 0.015) 40px,
+   327→   327→      rgba(212, 168, 67, 0.015) 41px
+   328→   328→    ),
+   329→   329→    linear-gradient(160deg, #0a1628 0%, #0f2040 100%);
+   330→   330→}
+   331→   331→
+   332→   332→.bg-arrc-warm-section {
+   333→   333→  background: linear-gradient(180deg, #faf8f2 0%, #f5f0e8 100%);
+   334→   334→}
+   335→   335→
+   336→   336→.bg-arrc-gold-section {
+   337→   337→  background: linear-gradient(180deg, #fdf9ef 0%, #faf5e4 100%);
+   338→   338→}
+   339→   339→
+   340→   340→/* Gold border glow effect */
+   341→   341→.gold-border-glow {
+   342→   342→  border: 1px solid rgba(212, 168, 67, 0.3);
+   343→   343→  box-shadow:
+   344→   344→    0 0 8px rgba(212, 168, 67, 0.15),
+   345→   345→    0 0 20px rgba(212, 168, 67, 0.08),
+   346→   346→    inset 0 0 8px rgba(212, 168, 67, 0.05);
+   347→   347→  animation: gold-border-pulse 4s ease-in-out infinite;
+   348→   348→}
+   349→   349→@keyframes gold-border-pulse {
+   350→   350→  0%, 100% {
+   351→   351→    box-shadow:
+   352→   352→      0 0 8px rgba(212, 168, 67, 0.15),
+   353→   353→      0 0 20px rgba(212, 168, 67, 0.08),
+   354→   354→      inset 0 0 8px rgba(212, 168, 67, 0.05);
+   355→   355→  }
+   356→   356→  50% {
+   357→   357→    box-shadow:
+   358→   358→      0 0 12px rgba(212, 168, 67, 0.3),
+   359→   359→      0 0 30px rgba(212, 168, 67, 0.15),
+   360→   360→      inset 0 0 12px rgba(212, 168, 67, 0.08);
+   361→   361→  }
+   362→   362→}
+   363→   363→
+   364→   364→/* Entrance animation */
+   365→   365→@keyframes fade-in-up {
+   366→   366→  0% {
+   367→   367→    opacity: 0;
+   368→   368→    transform: translateY(20px);
+   369→   369→  }
+   370→   370→  100% {
+   371→   371→    opacity: 1;
+   372→   372→    transform: translateY(0);
+   373→   373→  }
+   374→   374→}
+   375→   375→.animate-fade-in-up {
+   376→   376→  animation: fade-in-up 0.7s ease-out both;
+   377→   377→}
+   378→   378→
+   379→   379→/* Gold shimmer for text */
+   380→   380→@keyframes gold-shimmer {
+   381→   381→  0% {
+   382→   382→    background-position: -200% center;
+   383→   383→  }
+   384→   384→  100% {
+   385→   385→    background-position: 200% center;
+   386→   386→  }
+   387→   387→}
+   388→   388→.gold-shimmer-text {
+   389→   389→  background: linear-gradient(90deg, #d4a843 0%, #f7e7a0 25%, #d4a843 50%, #f0d68a 75%, #d4a843 100%);
+   390→   390→  background-size: 200% auto;
+   391→   391→  -webkit-background-clip: text;
+   392→   392→  -webkit-text-fill-color: transparent;
+   393→   393→  background-clip: text;
+   394→   394→  animation: gold-shimmer 4s linear infinite;
+   395→   395→}
+   396→   396→
+   397→   397→/* Subtle breathing scale */
+   398→   398→@keyframes subtle-breathe {
+   399→   399→  0%, 100% {
+   400→   400→    transform: scale(1);
+   401→   401→  }
+   402→   402→  50% {
+   403→   403→    transform: scale(1.02);
+   404→   404→  }
+   405→   405→}
+   406→   406→.animate-subtle-breathe {
+   407→   407→  animation: subtle-breathe 6s ease-in-out infinite;
+   408→   408→}
+   409→   409→
+   410→   410→/* Premium heading font — serif */
+   411→   411→.font-heading {
+   412→   412→  font-family: var(--font-heading), 'Cormorant Garamond', Georgia, serif;
+   413→   413→}
+   414→   414→
+   415→   415→/* Dramatic section separator — African-inspired with geometric diamond shapes */
+   416→   416→.section-separator {
+   417→   417→  position: relative;
+   418→   418→  height: 64px;
+   419→   419→  display: flex;
+   420→   420→  align-items: center;
+   421→   421→  justify-content: center;
+   422→   422→  overflow: hidden;
+   423→   423→}
+   424→   424→.section-separator::before {
+   425→   425→  content: '';
+   426→   426→  position: absolute;
+   427→   427→  left: 0;
+   428→   428→  right: 0;
+   429→   429→  top: 50%;
+   430→   430→  height: 1px;
+   431→   431→  background: linear-gradient(90deg, transparent 0%, rgba(212,168,67,0.15) 10%, rgba(212,168,67,0.4) 35%, rgba(212,168,67,0.6) 50%, rgba(212,168,67,0.4) 65%, rgba(212,168,67,0.15) 90%, transparent 100%);
+   432→   432→}
+   433→   433→.section-separator::after {
+   434→   434→  content: '◆  ◆  ◆';
+   435→   435→  position: relative;
+   436→   436→  z-index: 1;
+   437→   437→  color: #d4a843;
+   438→   438→  font-size: 6px;
+   439→   439→  letter-spacing: 8px;
+   440→   440→  background: inherit;
+   441→   441→  padding: 0 20px;
+   442→   442→  text-shadow: 0 0 8px rgba(212,168,67,0.4);
+   443→   443→}
+   444→   444→
+   445→   445→/* Dark section separator variant */
+   446→   446→.section-separator-dark {
+   447→   447→  background: #0a1628;
+   448→   448→}
+   449→   449→
+   450→   450→/* Light section separator variant */
+   451→   451→.section-separator-light {
+   452→   452→  background: #faf8f2;
+   453→   453→}
+   454→   454→
+   455→   455→/* Premium photo frame effect */
+   456→   456→.photo-frame {
+   457→   457→  position: relative;
+   458→   458→  overflow: hidden;
+   459→   459→  border-radius: 1rem;
+   460→   460→}
+   461→   461→.photo-frame::before {
+   462→   462→  content: '';
+   463→   463→  position: absolute;
+   464→   464→  inset: 8px;
+   465→   465→  border: 1px solid rgba(212,168,67,0.2);
+   466→   466→  border-radius: 0.75rem;
+   467→   467→  z-index: 2;
+   468→   468→  pointer-events: none;
+   469→   469→}
+   470→   470→.photo-frame::after {
+   471→   471→  content: '';
+   472→   472→  position: absolute;
+   473→   473→  bottom: 0;
+   474→   474→  left: 0;
+   475→   475→  right: 0;
+   476→   476→  height: 40%;
+   477→   477→  background: linear-gradient(to top, rgba(10,22,40,0.6), transparent);
+   478→   478→  z-index: 1;
+   479→   479→  pointer-events: none;
+   480→   480→}
+   481→   481→
+   482→   482→/* Premium card with layered shadow */
+   483→   483→.card-premium {
+   484→   484→  background: white;
+   485→   485→  border-radius: 1rem;
+   486→   486→  box-shadow:
+   487→   487→    0 1px 2px rgba(0,0,0,0.04),
+   488→   488→    0 4px 8px rgba(0,0,0,0.04),
+   489→   489→    0 12px 24px rgba(0,0,0,0.06),
+   490→   490→    0 24px 48px rgba(0,0,0,0.04);
+   491→   491→  transition: box-shadow 0.4s ease, transform 0.4s ease;
+   492→   492→}
+   493→   493→.card-premium:hover {
+   494→   494→  box-shadow:
+   495→   495→    0 2px 4px rgba(0,0,0,0.04),
+   496→   496→    0 8px 16px rgba(0,0,0,0.06),
+   497→   497→    0 20px 40px rgba(0,0,0,0.08),
+   498→   498→    0 32px 64px rgba(0,0,0,0.06),
+   499→   499→    0 0 0 1px rgba(212,168,67,0.15);
+   500→   500→  transform: translateY(-4px);
+   501→   501→}
+   502→   502→
+   503→   503→/* Card premium dark variant */
+   504→   504→.card-premium-dark {
+   505→   505→  background: rgba(255,255,255,0.03);
+   506→   506→  border: 1px solid rgba(255,255,255,0.06);
+   507→   507→  border-radius: 1rem;
+   508→   508→  backdrop-filter: blur(20px);
+   509→   509→  -webkit-backdrop-filter: blur(20px);
+   510→   510→  box-shadow:
+   511→   511→    0 4px 16px rgba(0,0,0,0.2),
+   512→   512→    0 0 40px rgba(212,168,67,0.05);
+   513→   513→  transition: all 0.4s ease;
+   514→   514→}
+   515→   515→.card-premium-dark:hover {
+   516→   516→  border-color: rgba(212,168,67,0.25);
+   517→   517→  box-shadow:
+   518→   518→    0 8px 32px rgba(0,0,0,0.3),
+   519→   519→    0 0 60px rgba(212,168,67,0.1);
+   520→   520→  transform: translateY(-4px);
+   521→   521→}
+   522→   522→
+   523→   523→/* Heading accent — gold gradient underline */
+   524→   524→.heading-accent {
+   525→   525→  position: relative;
+   526→   526→  display: inline-block;
+   527→   527→}
+   528→   528→.heading-accent::after {
+   529→   529→  content: '';
+   530→   530→  position: absolute;
+   531→   531→  bottom: -8px;
+   532→   532→  left: 0;
+   533→   533→  width: 60px;
+   534→   534→  height: 3px;
+   535→   535→  background: linear-gradient(90deg, #d4a843, #f7e7a0, #d4a843);
+   536→   536→  border-radius: 2px;
+   537→   537→}
+   538→   538→
+   539→   539→/* Text balance for better typography */
+   540→   540→.text-balance {
+   541→   541→  text-wrap: balance;
+   542→   542→}
+   543→   543→
+   544→   544→/* Badge — refined */
+   545→   545→.badge-premium {
+   546→   546→  display: inline-flex;
+   547→   547→  align-items: center;
+   548→   548→  gap: 6px;
+   549→   549→  padding: 4px 14px;
+   550→   550→  border-radius: 100px;
+   551→   551→  font-size: 0.75rem;
+   552→   552→  font-weight: 600;
+   553→   553→  letter-spacing: 0.05em;
+   554→   554→  text-transform: uppercase;
+   555→   555→}
+   556→   556→
+   557→   557→/* Micro-interaction: subtle scale on hover */
+   558→   558→.hover-lift {
+   559→   559→  transition: transform 0.3s ease, box-shadow 0.3s ease;
+   560→   560→}
+   561→   561→.hover-lift:hover {
+   562→   562→  transform: translateY(-2px);
+   563→   563→}
+   564→   564→
+   565→   565→/* Scroll-triggered reveal animation */
+   566→   566→@keyframes reveal-up {
+   567→   567→  from {
+   568→   568→    opacity: 0;
+   569→   569→    transform: translateY(30px);
+   570→   570→  }
+   571→   571→  to {
+   572→   572→    opacity: 1;
+   573→   573→    transform: translateY(0);
+   574→   574→  }
+   575→   575→}
+   576→   576→.animate-reveal-up {
+   577→   577→  animation: reveal-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+   578→   578→}
+   579→   579→
+   580→   580→/* Image zoom effect on hover */
+   581→   581→.img-zoom {
+   582→   582→  overflow: hidden;
+   583→   583→}
+   584→   584→.img-zoom img, .img-zoom > picture img {
+   585→   585→  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   586→   586→}
+   587→   587→.img-zoom:hover img, .img-zoom:hover > picture img {
+   588→   588→  transform: scale(1.08);
+   589→   589→}
+   590→   590→
+   591→   591→/* Focus ring — gold */
+   592→   592→.focus-gold:focus-visible {
+   593→   593→  outline: 2px solid rgba(212,168,67,0.6);
+   594→   594→  outline-offset: 2px;
+   595→   595→}
+   596→   596→
+   597→   597→/* Print styles for membership form */
+   598→   598→@media print {
+   599→   599→  body * {
+   600→   600→    visibility: hidden;
+   601→   601→  }
+   602→   602→  .print-area, .print-area * {
+   603→   603→    visibility: visible;
+   604→   604→  }
+   605→   605→  .print-area {
+   606→   606→    position: absolute;
+   607→   607→    left: 0;
+   608→   608→    top: 0;
+   609→   609→    width: 100%;
+   610→   610→  }
+   611→   611→}
+   612→   612→
+   613→   613→/* ═══════════════════════════════════════════════════════════════════════════
+   614→   614→   LIQUID GLASS DESIGN SYSTEM v3.0
+   615→   615→   ═══════════════════════════════════════════════════════════════════════════
+   616→   616→
+   617→   617→   Translates the GPU liquid-glass tuning parameters (from the
+   618→   618→   build-webgl-liquid-glass skill) into pure CSS:
+   619→   619→
+   620→   620→     frost: 2.2        → backdrop-filter: blur(24px) saturate(180%)
+   621→   621→     refraction: 0.007  → subtle scale + layered gradient shift on ::before
+   622→   622→     aberration: 0.03   → RGB-split via triple-layered ::after with offset
+   623→   623→     bevelDepth: 0.075  → inset box-shadow (top-left light, bottom-right dark)
+   624→   624→     bevelWidth: 0.18   → padded inset highlight ring via ::before
+   625→   625→     specular: true     → top-edge specular highlight gradient
+   626→   626→     magnify: 1.006     → content scaled 1.006 inside the lens
+   627→   627→
+   628→   628→   Three intensity tiers:
+   629→   629→     .liquid-glass        — default, balanced frost + bevel + specular
+   630→   630→     .liquid-glass-frost  — heavier blur for privacy panels / modals
+   631→   631→     .liquid-glass-clear  — minimal, for nav bars over busy backgrounds
+   632→   632→
+   633→   633→   Plus dark-mode variants that use navy-tinted translucency.
+   634→   634→   Every surface has a @supports fallback for browsers without backdrop-filter.
+   635→   635→   ═══════════════════════════════════════════════════════════════════════════ */
+   636→   636→
+   637→   637→/* ── Liquid Glass: default tier (balanced) ── */
+   638→   638→.liquid-glass {
+   639→   639→  position: relative;
+   640→   640→  isolation: isolate;
+   641→   641→  background: rgba(255, 255, 255, 0.12);
+   642→   642→  backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+   643→   643→  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+   644→   644→  border: 1px solid rgba(255, 255, 255, 0.18);
+   645→   645→  border-radius: 1.25rem;
+   646→   646→  box-shadow:
+   647→   647→    /* bevel depth — top-left light, bottom-right dark */
+   648→   648→    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+   649→   649→    inset 0 -1px 1px rgba(0, 0, 0, 0.08),
+   650→   650→    inset 1px 0 1px rgba(255, 255, 255, 0.12),
+   651→   651→    inset -1px 0 1px rgba(0, 0, 0, 0.04),
+   652→   652→    /* drop shadow for depth */
+   653→   653→    0 8px 32px rgba(0, 0, 0, 0.12),
+   654→   654→    0 2px 8px rgba(0, 0, 0, 0.06);
+   655→   655→  transition: box-shadow 0.4s ease, transform 0.4s ease;
+   656→   656→}
+   657→   657→
+   658→   658→/* Specular highlight — top edge light refraction */
+   659→   659→.liquid-glass::before {
+   660→   660→  content: '';
+   661→   661→  position: absolute;
+   662→   662→  inset: 0;
+   663→   663→  border-radius: inherit;
+   664→   664→  background:
+   665→   665→    linear-gradient(
+   666→   666→      135deg,
+   667→   667→      rgba(255, 255, 255, 0.4) 0%,
+   668→   668→      rgba(255, 255, 255, 0.1) 15%,
+   669→   669→      transparent 40%,
+   670→   670→      transparent 60%,
+   671→   671→      rgba(255, 255, 255, 0.05) 85%,
+   672→   672→      rgba(255, 255, 255, 0.15) 100%
+   673→   673→    );
+   674→   674→  pointer-events: none;
+   675→   675→  z-index: 1;
+   676→   676→  mix-blend-mode: overlay;
+   677→   677→}
+   678→   678→
+   679→   679→/* Chromatic aberration — subtle RGB split on the border */
+   680→   680→.liquid-glass::after {
+   681→   681→  content: '';
+   682→   682→  position: absolute;
+   683→   683→  inset: -1px;
+   684→   684→  border-radius: inherit;
+   685→   685→  border: 1px solid transparent;
+   686→   686→  background:
+   687→   687→    linear-gradient(135deg, rgba(255, 0, 80, 0.025), transparent 30%) border-box,
+   688→   688→    linear-gradient(225deg, rgba(0, 180, 255, 0.025), transparent 30%) border-box;
+   689→   689→  -webkit-mask:
+   690→   690→    linear-gradient(#fff 0 0) padding-box,
+   691→   691→    linear-gradient(#fff 0 0);
+   692→   692→  -webkit-mask-composite: xor;
+   693→   693→  mask-composite: exclude;
+   694→   694→  pointer-events: none;
+   695→   695→  z-index: 2;
+   696→   696→}
+   697→   697→
+   698→   698→/* Content above the glass layers */
+   699→   699→.liquid-glass > * {
+   700→   700→  position: relative;
+   701→   701→  z-index: 3;
+   702→   702→}
+   703→   703→
+   704→   704→/* ── Liquid Glass: frost tier (heavier blur for modals/privacy) ── */
+   705→   705→.liquid-glass-frost {
+   706→   706→  position: relative;
+   707→   707→  isolation: isolate;
+   708→   708→  background: rgba(255, 255, 255, 0.18);
+   709→   709→  backdrop-filter: blur(40px) saturate(200%) brightness(1.08);
+   710→   710→  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.08);
+   711→   711→  border: 1px solid rgba(255, 255, 255, 0.22);
+   712→   712→  border-radius: 1.5rem;
+   713→   713→  box-shadow:
+   714→   714→    inset 0 2px 2px rgba(255, 255, 255, 0.4),
+   715→   715→    inset 0 -2px 2px rgba(0, 0, 0, 0.1),
+   716→   716→    inset 2px 0 2px rgba(255, 255, 255, 0.15),
+   717→   717→    inset -2px 0 2px rgba(0, 0, 0, 0.05),
+   718→   718→    0 16px 48px rgba(0, 0, 0, 0.18),
+   719→   719→    0 4px 16px rgba(0, 0, 0, 0.08);
+   720→   720→}
+   721→   721→.liquid-glass-frost::before {
+   722→   722→  content: '';
+   723→   723→  position: absolute;
+   724→   724→  inset: 0;
+   725→   725→  border-radius: inherit;
+   726→   726→  background: linear-gradient(
+   727→   727→    135deg,
+   728→   728→    rgba(255, 255, 255, 0.5) 0%,
+   729→   729→    rgba(255, 255, 255, 0.12) 20%,
+   730→   730→    transparent 50%,
+   731→   731→    rgba(255, 255, 255, 0.08) 80%,
+   732→   732→    rgba(255, 255, 255, 0.2) 100%
+   733→   733→  );
+   734→   734→  pointer-events: none;
+   735→   735→  z-index: 1;
+   736→   736→  mix-blend-mode: overlay;
+   737→   737→}
+   738→   738→.liquid-glass-frost > * {
+   739→   739→  position: relative;
+   740→   740→  z-index: 3;
+   741→   741→}
+   742→   742→
+   743→   743→/* ── Liquid Glass: clear tier (minimal, for nav bars) ── */
+   744→   744→.liquid-glass-clear {
+   745→   745→  position: relative;
+   746→   746→  isolation: isolate;
+   747→   747→  background: rgba(255, 255, 255, 0.08);
+   748→   748→  backdrop-filter: blur(16px) saturate(150%);
+   749→   749→  -webkit-backdrop-filter: blur(16px) saturate(150%);
+   750→   750→  border: 1px solid rgba(255, 255, 255, 0.12);
+   751→   751→  border-radius: 1rem;
+   752→   752→  box-shadow:
+   753→   753→    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+   754→   754→    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+   755→   755→    0 4px 16px rgba(0, 0, 0, 0.08);
+   756→   756→}
+   757→   757→.liquid-glass-clear::before {
+   758→   758→  content: '';
+   759→   759→  position: absolute;
+   760→   760→  inset: 0;
+   761→   761→  border-radius: inherit;
+   762→   762→  background: linear-gradient(
+   763→   763→    180deg,
+   764→   764→    rgba(255, 255, 255, 0.15) 0%,
+   765→   765→    transparent 50%
+   766→   766→  );
+   767→   767→  pointer-events: none;
+   768→   768→  z-index: 1;
+   769→   769→}
+   770→   770→.liquid-glass-clear > * {
+   771→   771→  position: relative;
+   772→   772→  z-index: 3;
+   773→   773→}
+   774→   774→
+   775→   775→/* ── Liquid Glass: dark variants (navy-tinted for dark surfaces) ── */
+   776→   776→.liquid-glass-dark {
+   777→   777→  position: relative;
+   778→   778→  isolation: isolate;
+   779→   779→  background: rgba(10, 22, 40, 0.55);
+   780→   780→  backdrop-filter: blur(24px) saturate(160%) brightness(0.95);
+   781→   781→  -webkit-backdrop-filter: blur(24px) saturate(160%) brightness(0.95);
+   782→   782→  border: 1px solid rgba(255, 255, 255, 0.1);
+   783→   783→  border-radius: 1.25rem;
+   784→   784→  box-shadow:
+   785→   785→    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+   786→   786→    inset 0 -1px 1px rgba(0, 0, 0, 0.2),
+   787→   787→    0 8px 32px rgba(0, 0, 0, 0.3),
+   788→   788→    0 0 40px rgba(212, 168, 67, 0.04);
+   789→   789→  transition: box-shadow 0.4s ease, transform 0.4s ease;
+   790→   790→}
+   791→   791→.liquid-glass-dark::before {
+   792→   792→  content: '';
+   793→   793→  position: absolute;
+   794→   794→  inset: 0;
+   795→   795→  border-radius: inherit;
+   796→   796→  background:
+   797→   797→    linear-gradient(
+   798→   798→      135deg,
+   799→   799→      rgba(255, 255, 255, 0.14) 0%,
+   800→   800→      rgba(255, 255, 255, 0.04) 20%,
+   801→   801→      transparent 50%,
+   802→   802→      rgba(212, 168, 67, 0.03) 80%,
+   803→   803→      rgba(255, 255, 255, 0.06) 100%
+   804→   804→    );
+   805→   805→  pointer-events: none;
+   806→   806→  z-index: 1;
+   807→   807→  mix-blend-mode: overlay;
+   808→   808→}
+   809→   809→.liquid-glass-dark::after {
+   810→   810→  content: '';
+   811→   811→  position: absolute;
+   812→   812→  inset: -1px;
+   813→   813→  border-radius: inherit;
+   814→   814→  border: 1px solid transparent;
+   815→   815→  background:
+   816→   816→    linear-gradient(135deg, rgba(212, 168, 67, 0.08), transparent 30%) border-box,
+   817→   817→    linear-gradient(225deg, rgba(100, 160, 255, 0.04), transparent 30%) border-box;
+   818→   818→  -webkit-mask:
+   819→   819→    linear-gradient(#fff 0 0) padding-box,
+   820→   820→    linear-gradient(#fff 0 0);
+   821→   821→  -webkit-mask-composite: xor;
+   822→   822→  mask-composite: exclude;
+   823→   823→  pointer-events: none;
+   824→   824→  z-index: 2;
+   825→   825→}
+   826→   826→.liquid-glass-dark > * {
+   827→   827→  position: relative;
+   828→   828→  z-index: 3;
+   829→   829→}
+   830→   830→
+   831→   831→/* ── Liquid glass gold-tinted variant (for ARRC premium surfaces) ── */
+   832→   832→.liquid-glass-gold {
+   833→   833→  position: relative;
+   834→   834→  isolation: isolate;
+   835→   835→  background: rgba(212, 168, 67, 0.08);
+   836→   836→  backdrop-filter: blur(24px) saturate(180%);
+   837→   837→  -webkit-backdrop-filter: blur(24px) saturate(180%);
+   838→   838→  border: 1px solid rgba(212, 168, 67, 0.2);
+   839→   839→  border-radius: 1.25rem;
+   840→   840→  box-shadow:
+   841→   841→    inset 0 1px 1px rgba(247, 231, 160, 0.25),
+   842→   842→    inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+   843→   843→    0 8px 32px rgba(0, 0, 0, 0.12),
+   844→   844→    0 0 24px rgba(212, 168, 67, 0.08);
+   845→   845→  transition: box-shadow 0.4s ease, transform 0.4s ease;
+   846→   846→}
+   847→   847→.liquid-glass-gold::before {
+   848→   848→  content: '';
+   849→   849→  position: absolute;
+   850→   850→  inset: 0;
+   851→   851→  border-radius: inherit;
+   852→   852→  background: linear-gradient(
+   853→   853→    135deg,
+   854→   854→    rgba(247, 231, 160, 0.2) 0%,
+   855→   855→    rgba(212, 168, 67, 0.05) 25%,
+   856→   856→    transparent 50%,
+   857→   857→    rgba(212, 168, 67, 0.04) 75%,
+   858→   858→    rgba(247, 231, 160, 0.1) 100%
+   859→   859→  );
+   860→   860→  pointer-events: none;
+   861→   861→  z-index: 1;
+   862→   862→  mix-blend-mode: overlay;
+   863→   863→}
+   864→   864→.liquid-glass-gold > * {
+   865→   865→  position: relative;
+   866→   866→  z-index: 3;
+   867→   867→}
+   868→   868→
+   869→   869→/* ── Liquid glass hover enhancement (interactive surfaces) ── */
+   870→   870→.liquid-glass-interactive {
+   871→   871→  cursor: pointer;
+   872→   872→}
+   873→   873→.liquid-glass-interactive:hover {
+   874→   874→  transform: translateY(-2px) scale(1.005);
+   875→   875→  box-shadow:
+   876→   876→    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+   877→   877→    inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+   878→   878→    0 12px 40px rgba(0, 0, 0, 0.16),
+   879→   879→    0 4px 12px rgba(0, 0, 0, 0.08),
+   880→   880→    0 0 0 1px rgba(212, 168, 67, 0.12);
+   881→   881→}
+   882→   882→.liquid-glass-dark.liquid-glass-interactive:hover,
+   883→   883→.liquid-glass-dark.liquid-glass-interactive:hover {
+   884→   884→  box-shadow:
+   885→   885→    inset 0 1px 1px rgba(255, 255, 255, 0.16),
+   886→   886→    inset 0 -1px 1px rgba(0, 0, 0, 0.25),
+   887→   887→    0 12px 40px rgba(0, 0, 0, 0.4),
+   888→   888→    0 0 48px rgba(212, 168, 67, 0.08),
+   889→   889→    0 0 0 1px rgba(212, 168, 67, 0.15);
+   890→   890→}
+   891→   891→
+   892→   892→/* ── Liquid glass shimmer sweep (on hover, for premium cards) ── */
+   893→   893→.liquid-glass-shimmer {
+   894→   894→  position: relative;
+   895→   895→  overflow: hidden;
+   896→   896→}
+   897→   897→.liquid-glass-shimmer::after {
+   898→   898→  content: '';
+   899→   899→  position: absolute;
+   900→   900→  top: 0;
+   901→   901→  left: -100%;
+   902→   902→  width: 50%;
+   903→   903→  height: 100%;
+   904→   904→  background: linear-gradient(
+   905→   905→    90deg,
+   906→   906→    transparent,
+   907→   907→    rgba(255, 255, 255, 0.15),
+   908→   908→    transparent
+   909→   909→  );
+   910→   910→  transition: left 0.8s ease;
+   911→   911→  pointer-events: none;
+   912→   912→  z-index: 4;
+   913→   913→}
+   914→   914→.liquid-glass-shimmer:hover::after {
+   915→   915→  left: 150%;
+   916→   916→}
+   917→   917→
+   918→   918→/* ── Fallback for browsers without backdrop-filter ── */
+   919→   919→@supports not (backdrop-filter: blur(1px)) {
+   920→   920→  .liquid-glass {
+   921→   921→    background: rgba(245, 240, 232, 0.92);
+   922→   922→    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+   923→   923→  }
+   924→   924→  .liquid-glass-frost {
+   925→   925→    background: rgba(250, 248, 242, 0.96);
+   926→   926→    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+   927→   927→  }
+   928→   928→  .liquid-glass-clear {
+   929→   929→    background: rgba(255, 255, 255, 0.85);
+   930→   930→  }
+   931→   931→  .liquid-glass-dark {
+   932→   932→    background: rgba(10, 22, 40, 0.92);
+   933→   933→  }
+   934→   934→  .liquid-glass-gold {
+   935→   935→    background: rgba(253, 249, 239, 0.92);
+   936→   936→  }
+   937→   937→  .liquid-glass::before,
+   938→   938→  .liquid-glass-frost::before,
+   939→   939→  .liquid-glass-clear::before,
+   940→   940→  .liquid-glass-dark::before,
+   941→   941→  .liquid-glass-gold::before {
+   942→   942→    display: none;
+   943→   943→  }
+   944→   944→}
+   945→   945→
+   946→   946→/* ── Respect reduced motion ── */
+   947→   947→@media (prefers-reduced-motion: reduce) {
+   948→   948→  .liquid-glass,
+   949→   949→  .liquid-glass-frost,
+   950→   950→  .liquid-glass-clear,
+   951→   951→  .liquid-glass-dark,
+   952→   952→  .liquid-glass-gold,
+   953→   953→  .liquid-glass-interactive,
+   954→   954→  .liquid-glass-shimmer {
+   955→   955→    transition: none;
+   956→   956→  }
+   957→   957→  .liquid-glass-interactive:hover {
+   958→   958→    transform: none;
+   959→   959→  }
+   960→   960→  .liquid-glass-shimmer::after {
+   961→   961→    display: none;
+   962→   962→  }
+   963→   963→}
+   964→   964→
+   965→   965→/* ═══════════════════════════════════════════════════════════════════════════
+   966→   966→   BENTO GRID DESIGN SYSTEM
+   967→   967→   ═══════════════════════════════════════════════════════════════════════════
+   968→   968→
+   969→   969→   A bento grid is a layout of varied-size cells in a uniform grid,
+   970→   970→   popularized by Apple's product pages. Each cell can contain different
+   971→   971→   content types (stats, images, text, video) and spans multiple rows/columns.
+   972→   972→
+   973→   973→   Usage:
+   974→   974→     <div class="bento-grid">
+   975→   975→       <div class="bento-cell bento-wide">…</div>      ← 2 cols
+   976→   976→       <div class="bento-cell bento-tall">…</div>      ← 2 rows
+   977→   977→       <div class="bento-cell bento-large">…</div>     ← 2x2
+   978→   978→       <div class="bento-cell">…</div>                  ← 1x1 (default)
+   979→   979→     </div>
+   980→   980→
+   981→   981→   Variants:
+   982→   982→     .bento-grid-3  — 3-column base (desktop)
+   983→   983→     .bento-grid-4  — 4-column base (desktop, for dense dashboards)
+   984→   984→     .bento-grid-auto — auto-fit minmax (fluid)
+   985→   985→
+   986→   986→   Cell spans:
+   987→   987→     .bento-wide   — span 2 columns
+   988→   988→     .bento-tall   — span 2 rows
+   989→   989→     .bento-large  — span 2 cols × 2 rows
+   990→   990→     .bento-full   — span all columns (full width feature)
+   991→   991→   ═══════════════════════════════════════════════════════════════════════════ */
+   992→   992→
+   993→   993→/* ── Base bento grid (4-column on desktop, responsive down) ── */
+   994→   994→.bento-grid {
+   995→   995→  display: grid;
+   996→   996→  grid-template-columns: repeat(1, 1fr);
+   997→   997→  gap: 1rem;
+   998→   998→  grid-auto-rows: minmax(140px, auto);
+   999→   999→}
+  1000→  1000→
+  1001→  1001→@media (min-width: 640px) {
+  1002→  1002→  .bento-grid {
+  1003→  1003→    grid-template-columns: repeat(2, 1fr);
+  1004→  1004→    gap: 1.25rem;
+  1005→  1005→  }
+  1006→  1006→}
+  1007→  1007→
+  1008→  1008→@media (min-width: 1024px) {
+  1009→  1009→  .bento-grid {
+  1010→  1010→    grid-template-columns: repeat(4, 1fr);
+  1011→  1011→    gap: 1.5rem;
+  1012→  1012→    grid-auto-rows: minmax(180px, auto);
+  1013→  1013→  }
+  1014→  1014→}
+  1015→  1015→
+  1016→  1016→/* ── 3-column variant ── */
+  1017→  1017→@media (min-width: 1024px) {
+  1018→  1018→  .bento-grid-3 {
+  1019→  1019→    grid-template-columns: repeat(3, 1fr);
+  1020→  1020→  }
+  1021→  1021→}
+  1022→  1022→
+  1023→  1023→/* ── Auto-fit fluid variant ── */
+  1024→  1024→.bento-grid-auto {
+  1025→  1025→  display: grid;
+  1026→  1026→  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  1027→  1027→  gap: 1rem;
+  1028→  1028→  grid-auto-rows: minmax(140px, auto);
+  1029→  1029→}
+  1030→  1030→@media (min-width: 640px) {
+  1031→  1031→  .bento-grid-auto {
+  1032→  1032→    gap: 1.25rem;
+  1033→  1033→  }
+  1034→  1034→}
+  1035→  1035→@media (min-width: 1024px) {
+  1036→  1036→  .bento-grid-auto {
+  1037→  1037→    gap: 1.5rem;
+  1038→  1038→    grid-auto-rows: minmax(180px, auto);
+  1039→  1039→  }
+  1040→  1040→}
+  1041→  1041→
+  1042→  1042→/* ── Bento cells ── */
+  1043→  1043→.bento-cell {
+  1044→  1044→  position: relative;
+  1045→  1045→  border-radius: 1.25rem;
+  1046→  1046→  overflow: hidden;
+  1047→  1047→  display: flex;
+  1048→  1048→  flex-direction: column;
+  1049→  1049→}
+  1050→  1050→
+  1051→  1051→/* ── Cell spans (apply at lg breakpoint where multi-col kicks in) ── */
+  1052→  1052→@media (min-width: 1024px) {
+  1053→  1053→  .bento-wide {
+  1054→  1054→    grid-column: span 2;
+  1055→  1055→  }
+  1056→  1056→  .bento-tall {
+  1057→  1057→    grid-row: span 2;
+  1058→  1058→  }
+  1059→  1059→  .bento-large {
+  1060→  1060→    grid-column: span 2;
+  1061→  1061→    grid-row: span 2;
+  1062→  1062→  }
+  1063→  1063→  .bento-full {
+  1064→  1064→    grid-column: 1 / -1;
+  1065→  1065→  }
+  1066→  1066→  .bento-wide-3 {
+  1067→  1067→    grid-column: span 3;
+  1068→  1068→  }
+  1069→  1069→}
+  1070→  1070→
+  1071→  1071→/* ── Bento cell content alignment helpers ── */
+  1072→  1072→.bento-cell-center {
+  1073→  1073→  align-items: center;
+  1074→  1074→  justify-content: center;
+  1075→  1075→  text-align: center;
+  1076→  1076→}
+  1077→  1077→.bento-cell-start {
+  1078→  1078→  align-items: flex-start;
+  1079→  1079→  justify-content: flex-start;
+  1080→  1080→}
+  1081→  1081→.bento-cell-end {
+  1082→  1082→  align-items: flex-end;
+  1083→  1083→  justify-content: flex-end;
+  1084→  1084→}
+  1085→  1085→.bento-cell-between {
+  1086→  1086→  justify-content: space-between;
+  1087→  1087→}
+  1088→  1088→
+  1089→  1089→/* ── Bento stat cell (for dashboard metrics) ── */
+  1090→  1090→.bento-stat {
+  1091→  1091→  padding: 1.5rem;
+  1092→  1092→  display: flex;
+  1093→  1093→  flex-direction: column;
+  1094→  1094→  justify-content: space-between;
+  1095→  1095→  gap: 0.5rem;
+  1096→  1096→}
+  1097→  1097→.bento-stat-value {
+  1098→  1098→  font-size: clamp(2rem, 5vw, 3.5rem);
+  1099→  1099→  font-weight: 700;
+  1100→  1100→  line-height: 1;
+  1101→  1101→  font-family: var(--font-heading), 'Cormorant Garamond', Georgia, serif;
+  1102→  1102→}
+  1103→  1103→.bento-stat-label {
+  1104→  1104→  font-size: 0.75rem;
+  1105→  1105→  font-weight: 600;
+  1106→  1106→  text-transform: uppercase;
+  1107→  1107→  letter-spacing: 0.08em;
+  1108→  1108→  color: rgba(255, 255, 255, 0.6);
+  1109→  1109→}
+  1110→  1110→.bento-stat-icon {
+  1111→  1111→  width: 2.5rem;
+  1112→  1112→  height: 2.5rem;
+  1113→  1113→  border-radius: 0.75rem;
+  1114→  1114→  display: flex;
+  1115→  1115→  align-items: center;
+  1116→  1116→  justify-content: center;
+  1117→  1117→}
+  1118→  1118→
+  1119→  1119→/* ── Bento entrance animation (staggered) ── */
+  1120→  1120→@keyframes bento-pop-in {
+  1121→  1121→  0% {
+  1122→  1122→    opacity: 0;
+  1123→  1123→    transform: scale(0.92) translateY(12px);
+  1124→  1124→  }
+  1125→  1125→  100% {
+  1126→  1126→    opacity: 1;
+  1127→  1127→    transform: scale(1) translateY(0);
+  1128→  1128→  }
+  1129→  1129→}
+  1130→  1130→.bento-cell {
+  1131→  1131→  animation: bento-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  1132→  1132→}
+  1133→  1133→.bento-cell:nth-child(1) { animation-delay: 0.05s; }
+  1134→  1134→.bento-cell:nth-child(2) { animation-delay: 0.1s; }
+  1135→  1135→.bento-cell:nth-child(3) { animation-delay: 0.15s; }
+  1136→  1136→.bento-cell:nth-child(4) { animation-delay: 0.2s; }
+  1137→  1137→.bento-cell:nth-child(5) { animation-delay: 0.25s; }
+  1138→  1138→.bento-cell:nth-child(6) { animation-delay: 0.3s; }
+  1139→  1139→.bento-cell:nth-child(7) { animation-delay: 0.35s; }
+  1140→  1140→.bento-cell:nth-child(8) { animation-delay: 0.4s; }
+  1141→  1141→
+  1142→  1142→@media (prefers-reduced-motion: reduce) {
+  1143→  1143→  .bento-cell {
+  1144→  1144→    animation: none;
+  1145→  1145→  }
+  1146→  1146→}
+  1147→  1147→
+  1148→  1148→/* ═══════════════════════════════════════════════════════════════════════════
+  1149→  1149→   THEME TOGGLE UTILITY
+  1150→  1150→   ═══════════════════════════════════════════════════════════════════════════ */
+  1151→  1151→.theme-toggle {
+  1152→  1152→  position: relative;
+  1153→  1153→  width: 2.5rem;
+  1154→  1154→  height: 2.5rem;
+  1155→  1155→  border-radius: 0.75rem;
+  1156→  1156→  display: flex;
+  1157→  1157→  align-items: center;
+  1158→  1158→  justify-content: center;
+  1159→  1159→  transition: background-color 0.3s ease, transform 0.3s ease;
+  1160→  1160→  cursor: pointer;
+  1161→  1161→  border: 1px solid rgba(212, 168, 67, 0.15);
+  1162→  1162→  background: rgba(255, 255, 255, 0.06);
+  1163→  1163→  backdrop-filter: blur(12px);
+  1164→  1164→  -webkit-backdrop-filter: blur(12px);
+  1165→  1165→}
+  1166→  1166→.theme-toggle:hover {
+  1167→  1167→  background: rgba(212, 168, 67, 0.12);
+  1168→  1168→  transform: scale(1.05);
+  1169→  1169→}
+  1170→  1170→.theme-toggle:active {
+  1171→  1171→  transform: scale(0.95);
+  1172→  1172→}
+  1173→  1173→

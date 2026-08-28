@@ -1,0 +1,65 @@
+"use client";
+
+import { useState } from "react";
+import { Navigation } from "@/components/arrc/navigation";
+import { Hero } from "@/components/arrc/hero";
+import { About } from "@/components/arrc/about";
+import { Policies } from "@/components/arrc/policies";
+import { Gallery } from "@/components/arrc/gallery";
+import { NEC } from "@/components/arrc/nec";
+import { News } from "@/components/arrc/news";
+import { Events } from "@/components/arrc/events";
+import { Membership } from "@/components/arrc/membership";
+import { FAQ } from "@/components/arrc/faq";
+import { MembershipFormDownload } from "@/components/arrc/membership-form-download";
+import { Footer } from "@/components/arrc/footer";
+import { ChatAssistant } from "@/components/arrc/chat-assistant";
+import { CookieConsent } from "@/components/arrc/cookie-consent";
+import { LegalModals } from "@/components/arrc/legal-modals";
+
+export default function Home() {
+  const [chatOpen, setChatOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [termsOpen, setTermsOpen] = useState(false);
+  const [popiaOpen, setPopiaOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {/* Navigation */}
+      <Navigation onChatOpen={() => setChatOpen(true)} />
+
+      {/* Main Content */}
+      <main className="flex-1">
+        <Hero />
+        <About />
+        <Policies />
+        <Gallery />
+        <NEC />
+        <News />
+        <Events />
+        <Membership />
+        <MembershipFormDownload />
+        <FAQ />
+      </main>
+
+      {/* Footer */}
+      <Footer
+        onPrivacyOpen={() => setPrivacyOpen(true)}
+        onTermsOpen={() => setTermsOpen(true)}
+        onPopiaOpen={() => setPopiaOpen(true)}
+      />
+
+      {/* Floating Components */}
+      <ChatAssistant />
+      <CookieConsent />
+      <LegalModals
+        privacyOpen={privacyOpen}
+        termsOpen={termsOpen}
+        popiaOpen={popiaOpen}
+        onPrivacyOpenChange={setPrivacyOpen}
+        onTermsOpenChange={setTermsOpen}
+        onPopiaOpenChange={setPopiaOpen}
+      />
+    </div>
+  );
+}
