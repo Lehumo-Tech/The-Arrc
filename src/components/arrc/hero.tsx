@@ -234,7 +234,7 @@ export function Hero() {
   const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
 
   const stats = [
-    { icon: Users, value: 2500000, suffix: "+", label: "Members", display: "2.5M+" },
+    { icon: Users, value: 350000, suffix: "+", label: "Members", display: "350K+" },
     { icon: MapPin, value: 9, suffix: "", label: "Provinces" },
     { icon: Heart, value: 100, suffix: "%", label: "People-Funded Movement" },
   ];

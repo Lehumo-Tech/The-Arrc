@@ -84,7 +84,7 @@ export function HomeStats({ onNavigate }: HomeStatsProps) {
                 </span>
               </div>
               <div className="mt-auto">
-                <div className="bento-stat-value gradient-text">2.5M+</div>
+                <div className="bento-stat-value gradient-text">350K+</div>
                 <div className="bento-stat-label">South Africans Mobilised</div>
                 <p className="mt-3 text-sm text-white/50 leading-relaxed">
                   From all nine provinces, uniting under one vision for a stronger,
