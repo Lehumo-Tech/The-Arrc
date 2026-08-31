@@ -85,12 +85,12 @@ export const FAQS = [
    POLICIES
    ════════════════════════════════════════════════════════════════════════ */
 export const POLICIES = [
-  { title: "Economic Freedom", description: "Breaking economic chains. The ARRC is committed to radical economic transformation that ensures wealth is shared, not hoarded.", imageUrl: null, bullets: ["Radical economic transformation", "Shared wealth, not hoarded wealth", "Black economic empowerment"] },
-  { title: "Quality Education", description: "Education is liberation. The ARRC will fight for free, quality education from early childhood to university.", imageUrl: null, bullets: ["Free, quality education", "Early childhood to university", "Skills for the future"] },
-  { title: "Healthcare for All", description: "Health is a right, not a privilege. The ARRC will work towards a universal healthcare system that serves every South African.", imageUrl: null, bullets: ["Universal healthcare", "Accessible clinics", "Quality public health"] },
-  { title: "Land Reform", description: "Land belongs to the people. The ARRC advocates for equitable land redistribution that addresses historical injustices.", imageUrl: null, bullets: ["Equitable redistribution", "Address historical injustice", "Productive land use"] },
-  { title: "Environmental Justice", description: "Protecting our land, air, and water. The ARRC recognises that environmental justice is inseparable from social justice.", imageUrl: null, bullets: ["Clean air & water", "Renewable energy", "Climate justice"] },
-  { title: "Safety & Security", description: "Every South African deserves to feel safe. The ARRC will overhaul policing and justice systems to serve communities.", imageUrl: null, bullets: ["Community policing", "Justice reform", "Safe neighbourhoods"] },
+  { title: "Economic Freedom", description: "Breaking economic chains. The ARRC is committed to radical economic transformation that ensures wealth is shared, not hoarded.", imageUrl: "/policies/economic-freedom.jpg", bullets: ["Radical economic transformation", "Shared wealth, not hoarded wealth", "Black economic empowerment"] },
+  { title: "Quality Education", description: "Education is liberation. The ARRC will fight for free, quality education from early childhood to university.", imageUrl: "/policies/quality-education.jpg", bullets: ["Free, quality education", "Early childhood to university", "Skills for the future"] },
+  { title: "Healthcare for All", description: "Health is a right, not a privilege. The ARRC will work towards a universal healthcare system that serves every South African.", imageUrl: "/policies/healthcare-for-all.jpg", bullets: ["Universal healthcare", "Accessible clinics", "Quality public health"] },
+  { title: "Land Reform", description: "Land belongs to the people. The ARRC advocates for equitable land redistribution that addresses historical injustices.", imageUrl: "/policies/land-reform.jpg", bullets: ["Equitable redistribution", "Address historical injustice", "Productive land use"] },
+  { title: "Environmental Justice", description: "Protecting our land, air, and water. The ARRC recognises that environmental justice is inseparable from social justice.", imageUrl: "/policies/environmental-justice.jpg", bullets: ["Clean air & water", "Renewable energy", "Climate justice"] },
+  { title: "Safety & Security", description: "Every South African deserves to feel safe. The ARRC will overhaul policing and justice systems to serve communities.", imageUrl: "/policies/safety-security.jpg", bullets: ["Community policing", "Justice reform", "Safe neighbourhoods"] },
 ];
 
 /* ════════════════════════════════════════════════════════════════════════
