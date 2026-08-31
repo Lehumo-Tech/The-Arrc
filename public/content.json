@@ -701,6 +701,24 @@
       "metadata": {},
       "createdAt": "2026-07-09T00:00:00.000Z",
       "updatedAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "static-leader-8",
+      "type": "leader",
+      "title": "Tenecious Mokholo",
+      "subtitle": "National Speaker",
+      "description": "Tenecious Mokholo serves as the National Speaker of the African Royal Rainbow Congress (ARRC). As the official voice of the movement, Speaker Mokholo is responsible for articulating the party's vision, policies, and positions to the public, the media, and across all nine provinces. A compelling orator and principled communicator, he ensures that the ARRC's message of transparency, justice, progress, and unity reaches every South African community.",
+      "content": null,
+      "imageUrl": "/leaders/speaker.jpeg",
+      "category": "nec",
+      "date": null,
+      "location": null,
+      "status": "published",
+      "featured": false,
+      "sortOrder": 8,
+      "metadata": {},
+      "createdAt": "2026-07-09T00:00:00.000Z",
+      "updatedAt": "2026-07-09T00:00:00.000Z"
     }
   ],
   "gallery": [
