@@ -53,23 +53,23 @@ export function CookieConsent() {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed bottom-0 left-0 right-0 z-40"
+          className="fixed bottom-0 left-0 right-0 z-50"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4 pt-2">
-            <div className="liquid-glass p-4 sm:p-5">
+            <div className="glass-dark liquid-glass-interactive p-4 sm:p-5">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <div className="flex items-start gap-3 flex-1">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-arrc-gold/10">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-arrc-gold/15 border border-arrc-gold/30">
                     <Cookie className="h-5 w-5 text-arrc-gold" />
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <p className="text-sm font-semibold text-arrc-950">Cookie Notice</p>
-                      <Shield className="h-3.5 w-3.5 text-arrc-700" />
+                      <p className="text-sm font-semibold text-white">Cookie Notice</p>
+                      <Shield className="h-3.5 w-3.5 text-arrc-gold/70" />
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-white/70 leading-relaxed">
                       We use cookies to improve your experience and comply with the{" "}
-                      <span className="font-semibold text-arrc-800">
+                      <span className="font-semibold text-arrc-gold">
                         Protection of Personal Information Act (POPIA)
                       </span>
                       . By continuing, you agree to our cookie policy.
@@ -81,7 +81,7 @@ export function CookieConsent() {
                     variant="outline"
                     size="sm"
                     onClick={handleDecline}
-                    className="flex-1 sm:flex-initial border-arrc-200 text-arrc-800 hover:bg-arrc-50 text-sm"
+                    className="flex-1 sm:flex-initial border-white/20 bg-white/5 text-white/80 hover:bg-white/10 hover:text-white text-sm"
                   >
                     Decline
                   </Button>
