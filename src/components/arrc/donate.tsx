@@ -47,9 +47,9 @@ interface Campaign {
 const presetAmounts = [50, 100, 250, 500, 1000];
 
 const bankDetails = {
-  bank: "FNB (First National Bank)",
+  bank: "Capitec Bank",
   accountName: "African Royal Rainbow Congress",
-  accountNumber: "6320 0000 000", // Placeholder — admin updates via CRM
+  accountNumber: "2544478930",
   branchCode: "250655",
   reference: "ARRC-DON-{your name}",
 };
