@@ -248,10 +248,10 @@ export function Donate() {
             <Heart className="h-4 w-4 text-arrc-gold" />
             <span className="text-sm font-heading font-medium text-arrc-gold">Support Our Movement</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-heading font-bold text-arrc-950 mb-4">
+          <h1 className="text-4xl sm:text-5xl font-heading font-bold text-white mb-4">
             Help Us Build a Better South Africa
           </h1>
-          <p className="text-lg text-arrc-700 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Your contribution fuels real change — from community upliftment to policy advocacy.
             Every rand makes a difference.
           </p>
@@ -260,7 +260,7 @@ export function Donate() {
         {/* Active Campaigns */}
         {campaigns.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-2xl font-heading font-bold text-arrc-950 mb-6 flex items-center gap-2">
+            <h2 className="text-2xl font-heading font-bold text-white mb-6 flex items-center gap-2">
               <Target className="h-6 w-6 text-arrc-gold" />
               Active Campaigns
             </h2>
@@ -273,10 +273,10 @@ export function Donate() {
                   transition={{ delay: i * 0.1 }}
                 >
                   <Card
-                    className={`cursor-pointer transition-all hover:shadow-xl ${
+                    className={`cursor-pointer transition-all hover:shadow-xl bg-white/5 border-white/10 ${
                       selectedCampaign === c.id
                         ? "border-arrc-gold ring-2 ring-arrc-gold/30"
-                        : "border-arrc-200 hover:border-arrc-gold/50"
+                        : "hover:border-arrc-gold/50"
                     }`}
                     onClick={() =>
                       setSelectedCampaign(selectedCampaign === c.id ? "" : c.id)
@@ -284,28 +284,28 @@ export function Donate() {
                   >
                     <CardContent className="p-5">
                       {c.imageUrl && (
-                        <div className="mb-3 rounded-lg overflow-hidden h-32 bg-arrc-100">
+                        <div className="mb-3 rounded-lg overflow-hidden h-32 bg-white/10">
                           <img src={c.imageUrl} alt={c.title} className="w-full h-full object-cover" />
                         </div>
                       )}
                       <span className="inline-block text-xs font-medium text-arrc-gold uppercase tracking-wide mb-2">
                         {c.category}
                       </span>
-                      <h3 className="font-heading font-bold text-arrc-950 mb-2 line-clamp-2">{c.title}</h3>
-                      <p className="text-sm text-arrc-600 mb-4 line-clamp-2">{c.summary}</p>
+                      <h3 className="font-heading font-bold text-white mb-2 line-clamp-2">{c.title}</h3>
+                      <p className="text-sm text-white/60 mb-4 line-clamp-2">{c.summary}</p>
 
                       {c.goalAmount > 0 && (
                         <div className="space-y-1.5">
                           <div className="flex justify-between text-xs">
-                            <span className="font-semibold text-arrc-950">
+                            <span className="font-semibold text-white">
                               R{c.raisedAmount.toLocaleString()}
                             </span>
-                            <span className="text-arrc-500">
+                            <span className="text-white/50">
                               of R{c.goalAmount.toLocaleString()}
                             </span>
                           </div>
                           <Progress value={c.progressPercent} className="h-2" />
-                          <p className="text-xs text-arrc-500">{c.progressPercent}% raised</p>
+                          <p className="text-xs text-white/50">{c.progressPercent}% raised</p>
                         </div>
                       )}
 
@@ -330,9 +330,9 @@ export function Donate() {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-1"
           >
-            <Card className="bg-white border-arrc-200 sticky top-24">
+            <Card className="bg-white/5 border-white/10 sticky top-24">
               <CardContent className="p-6">
-                <h3 className="font-heading font-bold text-arrc-950 mb-4 flex items-center gap-2">
+                <h3 className="font-heading font-bold text-white mb-4 flex items-center gap-2">
                   <Sparkles className="h-5 w-5 text-arrc-gold" />
                   Choose Amount
                 </h3>
@@ -361,18 +361,18 @@ export function Donate() {
 
                 {/* Custom amount */}
                 <div className="mb-4">
-                  <Label htmlFor="custom" className="text-xs text-arrc-600 mb-1.5 block">
+                  <Label htmlFor="custom" className="text-xs text-white/60 mb-1.5 block">
                     Or enter custom amount
                   </Label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-arrc-500 font-medium">R</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 font-medium">R</span>
                     <Input
                       id="custom"
                       type="number"
                       placeholder="0.00"
                       value={customAmount}
                       onChange={(e) => setCustomAmount(e.target.value)}
-                      className="pl-8 border-arrc-200 focus:border-arrc-gold"
+                      className="pl-8 bg-white/5 border-white/10 text-white focus:border-arrc-gold"
                     />
                   </div>
                 </div>
@@ -384,7 +384,7 @@ export function Donate() {
                       checked={recurring}
                       onCheckedChange={(v) => setRecurring(v === true)}
                     />
-                    <span className="text-sm text-arrc-700">Make this a recurring donation</span>
+                    <span className="text-sm text-white/70">Make this a recurring donation</span>
                   </label>
                   {recurring && (
                     <div className="mt-2 flex gap-2">
@@ -397,7 +397,7 @@ export function Donate() {
                           className={
                             recurringPeriod === p
                               ? "bg-arrc-950 text-white text-xs"
-                              : "border-arrc-200 text-arrc-600 text-xs"
+                              : "border-white/10 text-white/60 text-xs"
                           }
                         >
                           {p.charAt(0).toUpperCase() + p.slice(1)}
@@ -409,7 +409,7 @@ export function Donate() {
 
                 {/* Payment method */}
                 <div className="mb-4">
-                  <Label className="text-xs text-arrc-600 mb-1.5 block">Payment Method</Label>
+                  <Label className="text-xs text-white/60 mb-1.5 block">Payment Method</Label>
                   <div className="grid grid-cols-2 gap-2">
                     <Button
                       variant={paymentMethod === "eft" ? "default" : "outline"}
@@ -418,7 +418,7 @@ export function Donate() {
                       className={
                         paymentMethod === "eft"
                           ? "bg-arrc-950 text-white"
-                          : "border-arrc-200 text-arrc-600"
+                          : "border-white/10 text-white/60"
                       }
                     >
                       <Building2 className="h-4 w-4 mr-1.5" /> EFT
@@ -430,7 +430,7 @@ export function Donate() {
                       className={
                         paymentMethod === "card"
                           ? "bg-arrc-950 text-white"
-                          : "border-arrc-200 text-arrc-600"
+                          : "border-white/10 text-white/60"
                       }
                     >
                       <CreditCard className="h-4 w-4 mr-1.5" /> Card
@@ -444,19 +444,19 @@ export function Donate() {
                     checked={anonymous}
                     onCheckedChange={(v) => setAnonymous(v === true)}
                   />
-                  <span className="text-sm text-arrc-700">Donate anonymously</span>
+                  <span className="text-sm text-white/70">Donate anonymously</span>
                 </label>
 
                 {/* Summary */}
-                <div className="mt-4 pt-4 border-t border-arrc-100">
+                <div className="mt-4 pt-4 border-t border-white/10">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-arrc-600">Total:</span>
+                    <span className="text-sm text-white/60">Total:</span>
                     <span className="text-2xl font-heading font-bold text-arrc-gold">
                       R{(finalAmount || 0).toFixed(2)}
                     </span>
                   </div>
                   {recurring && (
-                    <p className="text-xs text-arrc-500 mt-1">
+                    <p className="text-xs text-white/50 mt-1">
                       {recurringPeriod.charAt(0).toUpperCase() + recurringPeriod.slice(1)} donation
                     </p>
                   )}
@@ -471,34 +471,34 @@ export function Donate() {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-2"
           >
-            <Card className="bg-white border-arrc-200">
+            <Card className="bg-white/5 border-white/10">
               <CardContent className="p-6">
-                <h3 className="font-heading font-bold text-arrc-950 mb-4">
+                <h3 className="font-heading font-bold text-white mb-4">
                   Your Details
                 </h3>
 
                 <div className="grid gap-4 sm:grid-cols-2 mb-4">
                   <div>
-                    <Label htmlFor="d-firstName" className="text-sm text-arrc-700 mb-1.5 block">
+                    <Label htmlFor="d-firstName" className="text-sm text-white/70 mb-1.5 block">
                       First Name *
                     </Label>
                     <Input
                       id="d-firstName"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="border-arrc-200 focus:border-arrc-gold"
+                      className="bg-white/5 border-white/10 text-white focus:border-arrc-gold"
                       disabled={anonymous}
                     />
                   </div>
                   <div>
-                    <Label htmlFor="d-lastName" className="text-sm text-arrc-700 mb-1.5 block">
+                    <Label htmlFor="d-lastName" className="text-sm text-white/70 mb-1.5 block">
                       Last Name *
                     </Label>
                     <Input
                       id="d-lastName"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="border-arrc-200 focus:border-arrc-gold"
+                      className="bg-white/5 border-white/10 text-white focus:border-arrc-gold"
                       disabled={anonymous}
                     />
                   </div>
@@ -506,7 +506,7 @@ export function Donate() {
 
                 <div className="grid gap-4 sm:grid-cols-2 mb-4">
                   <div>
-                    <Label htmlFor="d-email" className="text-sm text-arrc-700 mb-1.5 block">
+                    <Label htmlFor="d-email" className="text-sm text-white/70 mb-1.5 block">
                       Email *
                     </Label>
                     <Input
@@ -514,24 +514,24 @@ export function Donate() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="border-arrc-200 focus:border-arrc-gold"
+                      className="bg-white/5 border-white/10 text-white focus:border-arrc-gold"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="d-phone" className="text-sm text-arrc-700 mb-1.5 block">
+                    <Label htmlFor="d-phone" className="text-sm text-white/70 mb-1.5 block">
                       Phone *
                     </Label>
                     <Input
                       id="d-phone"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="border-arrc-200 focus:border-arrc-gold"
+                      className="bg-white/5 border-white/10 text-white focus:border-arrc-gold"
                     />
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <Label htmlFor="d-message" className="text-sm text-arrc-700 mb-1.5 block">
+                  <Label htmlFor="d-message" className="text-sm text-white/70 mb-1.5 block">
                     Message (optional)
                   </Label>
                   <Textarea
@@ -539,7 +539,7 @@ export function Donate() {
                     placeholder="Share why you're supporting the ARRC..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="border-arrc-200 focus:border-arrc-gold min-h-[80px]"
+                    className="bg-white/5 border-white/10 text-white focus:border-arrc-gold min-h-[80px]"
                   />
                 </div>
 
@@ -550,7 +550,7 @@ export function Donate() {
                     onCheckedChange={(v) => setConsent(v === true)}
                     className="mt-0.5"
                   />
-                  <span className="text-xs text-arrc-600 leading-relaxed">
+                  <span className="text-xs text-white/60 leading-relaxed">
                     I consent to the processing of my personal information in accordance with
                     the Protection of Personal Information Act (POPIA) and the ARRC Privacy Policy.
                     The ARRC will never share my information with a third party.
@@ -558,7 +558,7 @@ export function Donate() {
                 </label>
 
                 {error && (
-                  <div className="mb-4 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+                  <div className="mb-4 rounded-lg bg-red-500/10 border border-red-500/20 px-4 py-3 text-sm text-red-400">
                     {error}
                   </div>
                 )}
@@ -582,7 +582,7 @@ export function Donate() {
                   )}
                 </Button>
 
-                <p className="text-xs text-arrc-500 text-center mt-3">
+                <p className="text-xs text-white/50 text-center mt-3">
                   {paymentMethod === "eft"
                     ? "You'll receive bank details to complete your EFT after submitting."
                     : "Secure card payment — you'll be redirected to complete your payment."}
@@ -626,13 +626,13 @@ export function Donate() {
             { icon: Users, title: "Community Impact", desc: "Your donation directly funds community projects and policy advocacy." },
             { icon: Shield, title: "Secure & POPIA Compliant", desc: "Your information is protected under South African privacy law." },
           ].map((item, i) => (
-            <Card key={i} className="bg-white border-arrc-200">
+            <Card key={i} className="bg-white/5 border-white/10">
               <CardContent className="p-6 text-center">
                 <div className="mx-auto w-12 h-12 rounded-full bg-arrc-gold/10 flex items-center justify-center mb-3">
                   <item.icon className="h-6 w-6 text-arrc-gold" />
                 </div>
-                <h3 className="font-heading font-bold text-arrc-950 mb-2">{item.title}</h3>
-                <p className="text-sm text-arrc-600">{item.desc}</p>
+                <h3 className="font-heading font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-white/60">{item.desc}</p>
               </CardContent>
             </Card>
           ))}
