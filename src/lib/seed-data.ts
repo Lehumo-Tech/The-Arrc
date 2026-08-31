@@ -145,6 +145,7 @@ export const GALLERY = [
   { title: "Community Supporters", description: "Community members showing their support for the ARRC.", imageUrl: "/events/voter-registration-weekend-president.jpeg", badge: "Community" },
   { title: "Campaign Trail", description: "On the campaign trail across South Africa.", imageUrl: "/events/door-to-door-soweto-ward-14.jpeg", badge: "Campaign" },
   { title: "Door-to-Door Campaign — Mathibestad", description: "ARRC volunteers engaging with residents in Mathibestad, North-West Province.", imageUrl: "/gallery/door-to-door-campaign.jpeg", badge: "Campaign" },
+  { title: "Ward 132 Campaign Billboard — Tenecious Sello Mokholo", description: "ARRC Councillor Candidate billboard for Ward 132, City of Johannesburg. \"Your Voice. Your Rights. Our Future.\"", imageUrl: "/gallery/mokholo-ward-132-billboard.jpeg", badge: "Billboard" },
 ];
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -253,6 +254,17 @@ export const NEWS = [
     date: "2026-06-30",
     featured: false,
     sortOrder: 6,
+  },
+  {
+    title: "ARRC Unveils Ward 132 Campaign Billboard for Local Elections",
+    subtitle: "Tenecious Sello Mokholo announced as Councillor Candidate for City of Johannesburg",
+    description: "The African Royal Rainbow Congress has unveiled its first campaign billboard ahead of the 4 November 2026 local government elections, featuring Tenecious Sello Mokholo as the party's Councillor Candidate for Ward 132 in the City of Johannesburg. The billboard carries the slogan \"Your Voice. Your Rights. Our Future.\" and the rallying call \"Together, we build a better tomorrow!\"",
+    content: "The billboard, prominently displayed across Ward 132, marks the ARRC's formal entry into the Johannesburg municipal elections. It features the party's signature rainbow branding and positions the ARRC as the voice of residents who have been forgotten by the established parties.\n\nTenecious Sello Mokholo, who also serves as the ARRC's National Speaker, said: \"This billboard is more than a campaign poster — it is a contract with the people of Ward 132. We are saying: your voice matters, your rights will be defended, and together we will build a better tomorrow. For too long, our communities have been ignored. The ARRC is here to change that.\"\n\nThe campaign centres on three pillars — Your Voice, Your Rights, and Our Future — reflecting the party's commitment to transparent governance, accountable leadership, and community-driven development. The ARRC encourages all eligible voters in Ward 132 to register and make their voices heard on 4 November 2026.\n\nMembership is open to all South Africans aged 16 and above for just R20 per year. Join the movement today.",
+    imageUrl: "/news/mokholo-ward-132-billboard.jpeg",
+    category: "Campaigns",
+    date: "2026-08-28",
+    featured: true,
+    sortOrder: 7,
   },
 ];
 
