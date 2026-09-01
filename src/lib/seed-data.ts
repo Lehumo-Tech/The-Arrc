@@ -146,6 +146,9 @@ export const GALLERY = [
   { title: "Campaign Trail", description: "On the campaign trail across South Africa.", imageUrl: "/events/door-to-door-soweto-ward-14.jpeg", badge: "Campaign" },
   { title: "Door-to-Door Campaign — Mathibestad", description: "ARRC volunteers engaging with residents in Mathibestad, North-West Province.", imageUrl: "/gallery/door-to-door-campaign.jpeg", badge: "Campaign" },
   { title: "Ward 132 Campaign Billboard — Tenecious Sello Mokholo", description: "ARRC Councillor Candidate billboard for Ward 132, City of Johannesburg. \"Your Voice. Your Rights. Our Future.\"", imageUrl: "/gallery/mokholo-ward-132-billboard.jpeg", badge: "Billboard" },
+  { title: "Deputy President Campaign Poster — Princess Lobisa Chokwe", description: "ARRC Deputy President / Business Affairs candidate poster. \"Together we build a better tomorrow!\" Vote 04 November 2026.", imageUrl: "/gallery/poster-lobisa-chokwe-deputy-president.jpeg", badge: "Campaign Poster" },
+  { title: "Claim Back the Local Economy", description: "ARRC campaign to return township businesses — spaza shops, salons, taverns — to South Africans. Vote ARRC, 04 November 2026.", imageUrl: "/gallery/poster-claim-back-local-economy.jpeg", badge: "Policy Poster" },
+  { title: "Take Back Your Power — 6-Point Plan", description: "The ARRC's six-point promise: Education & Skills, Jobs & Growth, Industry & Innovation, South Africans First, Safe & Accountable Governance, Empowering Communities.", imageUrl: "/gallery/poster-take-back-your-power.jpeg", badge: "Manifesto Poster" },
 ];
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -265,6 +268,39 @@ export const NEWS = [
     date: "2026-08-28",
     featured: true,
     sortOrder: 7,
+  },
+  {
+    title: "ARRC Announces Princess Lobisa Chokwe as Deputy President / Business Affairs",
+    subtitle: "Campaign poster unveiled ahead of 04 November 2026 local elections",
+    description: "The African Royal Rainbow Congress has unveiled the campaign poster for Princess Lobisa Chokwe, the party's candidate for Deputy President / Business Affairs. The poster carries the rallying call \"Together we build a better tomorrow!\" and the slogan \"Your Voice. Your Rights. Our Future.\" as the ARRC gears up for the 04 November 2026 elections.",
+    content: "Princess Lobisa Chokwe has been announced as the ARRC's candidate for Deputy President / Business Affairs, a role that will place her at the centre of the party's economic empowerment and enterprise agenda.\n\nThe campaign poster, featuring the ARRC's signature rainbow branding, was unveiled ahead of the 04 November 2026 local government elections. It positions Chokwe as a champion for South African entrepreneurs and small business owners, with the slogan \"Together we build a better tomorrow!\" reflecting the party's commitment to inclusive economic growth.\n\n\"For too long, the wealth of our nation has been concentrated in the hands of a few while township businesses struggle,\" said Chokwe. \"The ARRC is here to change that. We will ensure that small local businesses — spaza shops, salons, taverns, and every enterprise in our communities — belong to and benefit South Africans.\"\n\nThe ARRC encourages all supporters to share the campaign poster and make their voices heard on 04 November 2026.",
+    imageUrl: "/news/poster-lobisa-chokwe-deputy-president.jpeg",
+    category: "Campaigns",
+    date: "2026-08-31",
+    featured: true,
+    sortOrder: 8,
+  },
+  {
+    title: "ARRC Launches \"Claim Back the Local Economy\" Campaign",
+    subtitle: "New poster calls on South Africans to reclaim township businesses",
+    description: "The African Royal Rainbow Congress has launched its \"Claim Back the Local Economy\" campaign with a bold new poster that calls on South Africans to take back ownership of small local businesses — spaza shops, hair salons, beauty parlours, taverns, and shebeens — in our townships. The campaign launches ahead of the 04 November 2026 elections.",
+    content: "The ARRC's new \"Claim Back the Local Economy\" campaign poster delivers a powerful message: small local businesses belong to South Africans.\n\nThe poster highlights five key business sectors central to township life — Spaza Shops, Hair Salons, Beauty Parlours, Taverns, and Shebeens — and calls on communities to reclaim ownership of these enterprises. It forms part of the ARRC's broader economic freedom policy, which commits the party to radical economic transformation that ensures wealth is shared, not hoarded.\n\n\"For too long, foreign nationals have dominated our township economies while South Africans watch from the sidelines,\" the ARRC said in a statement. \"We do not oppose anyone — but we believe that the businesses in our communities must belong to and employ the people who live there. That is what economic freedom looks like.\"\n\nThe campaign urges voters to support the ARRC on 04 November 2026 to turn this vision into reality. \"Power to the people. Power to build our future.\"",
+    imageUrl: "/news/poster-claim-back-local-economy.jpeg",
+    category: "Policy",
+    date: "2026-09-01",
+    featured: true,
+    sortOrder: 9,
+  },
+  {
+    title: "ARRC Unveils \"Take Back Your Power\" Manifesto Poster",
+    subtitle: "Six-point plan for a better South Africa presented to voters",
+    description: "The African Royal Rainbow Congress has unveiled its \"Take Back Your Power\" manifesto poster, presenting the party's six-point promise to the South African people: Education & Skills, Jobs & Economic Growth, Industry & Innovation, South Africans First, Safe & Accountable Governance, and Empowering Communities. The poster calls on citizens to join the movement and build a better South Africa.",
+    content: "The ARRC's new \"Take Back Your Power\" manifesto poster lays out the party's six-point plan for transforming South Africa:\n\n1. **Education & Skills** — Quality education and skills for every South African.\n2. **Jobs & Economic Growth** — Creating jobs through investment, innovation, and entrepreneurship.\n3. **Industry & Innovation** — Building industries that add value and create wealth.\n4. **South Africans First** — Opportunities, skills, and jobs for South Africans first.\n5. **Safe, Clean & Accountable Governance** — Good governance and quality services in every community.\n6. **Empowering Communities** — Stronger communities. More opportunities. Better lives.\n\nThe poster's central message — \"The power to decide. The power to build. The power to change our future.\" — reflects the ARRC's belief that real change comes from the people, not from the top down.\n\n\"The power is yours. Let's use it to build a better South Africa,\" the poster declares, urging citizens to join the movement and vote ARRC.\n\nThe full manifesto is available for download in the Documents section of this website.",
+    imageUrl: "/news/poster-take-back-your-power.jpeg",
+    category: "Manifesto",
+    date: "2026-09-01",
+    featured: true,
+    sortOrder: 10,
   },
 ];
 
