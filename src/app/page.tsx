@@ -24,7 +24,6 @@ import { SectionPage } from "@/components/arrc/section-page";
 import { HomeHighlights } from "@/components/arrc/home-highlights";
 import { HomeStats } from "@/components/arrc/home-stats";
 import { DocumentViewer } from "@/components/arrc/document-viewer";
-import { Donate } from "@/components/arrc/donate";
 import { MemberPortal } from "@/components/arrc/member-portal";
 import { NewsletterSignup } from "@/components/arrc/newsletter-signup";
 import { MarketingCarousel } from "@/components/arrc/marketing-carousel";
@@ -41,7 +40,6 @@ const hashToView: Record<string, string> = {
   "#news": "news",
   "#events": "events",
   "#documents": "documents",
-  "#donate": "donate",
   "#portal": "portal",
   "#join": "join",
   "#contact": "join",
@@ -59,7 +57,6 @@ const viewToHash: Record<string, string> = {
   news: "#news",
   events: "#events",
   documents: "#documents",
-  donate: "#donate",
   portal: "#portal",
   join: "#join",
 };
@@ -73,7 +70,6 @@ const viewTitles: Record<string, string> = {
   news: "Latest News",
   events: "Events & Gatherings",
   documents: "Official Documents",
-  donate: "Support Our Movement",
   portal: "Member Portal",
   join: "Join The Movement",
 };
@@ -309,23 +305,6 @@ export default function Home() {
               <MembershipFormDownload />
               <div className="section-separator section-separator-light" />
               <FAQ />
-            </SectionPage>
-          </motion.div>
-        );
-
-      /* ─── DONATE VIEW ─── */
-      case "donate":
-        return (
-          <motion.div
-            key="donate"
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.35, ease: "easeOut" }}
-          >
-            <SectionPage title={viewTitles.donate} onBack={() => setView("home")}>
-              <Donate />
             </SectionPage>
           </motion.div>
         );

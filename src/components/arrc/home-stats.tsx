@@ -8,7 +8,6 @@ import {
   CalendarDays,
   Newspaper,
   Crown,
-  Heart,
   Shield,
   TrendingUp,
 } from "lucide-react";
@@ -29,7 +28,7 @@ import { BentoGrid, BentoCell, BentoStat } from "@/components/arrc/bento-grid";
  *   │   R20 FEE    │   UPCOMING EVENTS   │
  *   │   (gold)     │      (wide)         │
  *   ├──────────┬───┴──────────┬──────────┤
- *   │  NEWS    │  PEOPLE-FUNDED│ DONATE  │
+ *   │  NEWS    │  PEOPLE-FUNDED│ JOIN    │
  *   └──────────┴───────────────┴──────────┘
  */
 interface HomeStatsProps {
@@ -205,21 +204,21 @@ export function HomeStats({ onNavigate }: HomeStatsProps) {
             </div>
           </BentoCell>
 
-          {/* Cell 8: Donate CTA */}
+          {/* Cell 8: Join CTA */}
           <BentoCell
             variant="glass-gold"
             interactive
             shimmer
-            onClick={() => onNavigate?.("donate")}
+            onClick={() => onNavigate?.("join")}
           >
             <div className="bento-stat h-full">
               <div className="bento-stat-icon bg-arrc-gold/20 text-arrc-gold">
-                <Heart className="h-5 w-5" />
+                <Crown className="h-5 w-5" />
               </div>
               <div className="mt-auto">
-                <div className="bento-stat-value gradient-text">Support</div>
+                <div className="bento-stat-value gradient-text">Join</div>
                 <div className="bento-stat-label text-arrc-gold/80">
-                  Fuel The Movement
+                  R20 / Year Membership
                 </div>
               </div>
             </div>

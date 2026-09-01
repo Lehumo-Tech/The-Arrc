@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, Crown, Heart, UserCircle } from "lucide-react";
+import { Menu, Crown, UserCircle } from "lucide-react";
 import { ThemeToggle } from "@/components/arrc/theme-toggle";
 
 const navLinks = [
@@ -17,7 +17,6 @@ const navLinks = [
   { label: "News", view: "news" },
   { label: "Events", view: "events" },
   { label: "Documents", view: "documents" },
-  { label: "Donate", view: "donate" },
   { label: "Join", view: "join" },
 ];
 
@@ -129,25 +128,6 @@ export function Navigation({ currentView, setView }: NavigationProps) {
                 <span className="hidden xl:inline">Portal</span>
               </motion.button>
 
-              {/* Donate */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.48, duration: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  onClick={() => handleNavClick("donate")}
-                  variant="outline"
-                  className="border-arrc-gold/40 text-arrc-gold hover:bg-arrc-gold/10 hover:text-arrc-gold font-heading font-bold"
-                  size="sm"
-                >
-                  <Heart className="h-4 w-4 mr-1.5" />
-                  Donate
-                </Button>
-              </motion.div>
-
               {/* Join */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -233,14 +213,6 @@ export function Navigation({ currentView, setView }: NavigationProps) {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.4, duration: 0.3 }}
                         >
-                          <Button
-                            onClick={() => handleNavClick("donate")}
-                            variant="outline"
-                            className="w-full border-arrc-gold/40 text-arrc-gold hover:bg-arrc-gold/10 font-heading font-bold"
-                          >
-                            <Heart className="h-4 w-4 mr-1.5" />
-                            Donate
-                          </Button>
                           <Button
                             onClick={() => handleNavClick("portal")}
                             variant="outline"

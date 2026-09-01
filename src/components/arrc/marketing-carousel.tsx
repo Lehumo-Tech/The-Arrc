@@ -6,29 +6,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ArrowLeft,
-  Heart,
-  Users,
   Calendar,
   Play,
   Pause,
+  Newspaper,
 } from "lucide-react";
 
 /* ─── Types ─── */
-interface CarouselCampaign {
+interface CarouselSlide {
   slug: string;
   title: string;
   summary: string;
   imageUrl: string | null;
   category: string;
-  goalAmount: number;
-  raisedAmount: number;
-  supporterGoal: number;
-  supporterCount: number;
-  startDate: string | null;
+  date: string | null;
 }
 
 interface MarketingCarouselProps {
-  /** Navigate to a view (e.g. "donate", "events"). */
+  /** Navigate to a view (e.g. "news", "events"). */
   onNavigate?: (view: string) => void;
 }
 
@@ -39,59 +34,62 @@ const MIN_SLIDES = 2;
 /* ─── Category display config ─── */
 const CATEGORY_CONFIG: Record<
   string,
-  { label: string; icon: typeof Heart }
+  { label: string }
 > = {
-  community: { label: "Community", icon: Users },
-  education: { label: "Education", icon: Heart },
-  health: { label: "Health", icon: Heart },
-  crime: { label: "Safety", icon: Heart },
-  water: { label: "Water", icon: Heart },
-  jobs: { label: "Jobs", icon: Heart },
-  general: { label: "Campaign", icon: Heart },
+  campaigns: { label: "Campaigns" },
+  policy: { label: "Policy" },
+  community: { label: "Community" },
+  youth: { label: "Youth" },
+  rally: { label: "Rally" },
+  manifesto: { label: "Manifesto" },
+  "presidential report": { label: "Presidential Report" },
+  general: { label: "News" },
 };
 
-/* ─── Format currency ─── */
-function formatRand(n: number): string {
-  return "R" + n.toLocaleString("en-ZA");
+/* ─── Format date ─── */
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return "";
+  try {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString("en-ZA", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  } catch {
+    return "";
+  }
 }
 
 /* ─── Component ─── */
 export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
-  const [campaigns, setCampaigns] = useState<CarouselCampaign[]>([]);
+  const [slides, setSlides] = useState<CarouselSlide[]>([]);
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState(1);
   const [loading, setLoading] = useState(true);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  /* ─── Fetch campaigns ─── */
+  /* ─── Fetch featured news ─── */
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch("/api/donations/campaigns");
+        const res = await fetch("/api/content?type=news");
         const data = await res.json();
-        const list: CarouselCampaign[] = (data.campaigns || []).map(
-          (c: Record<string, unknown>) => ({
-            slug: c.slug as string,
-            title: c.title as string,
-            summary: c.summary as string,
-            imageUrl: (c.imageUrl as string) || null,
-            category: (c.category as string) || "general",
-            goalAmount: (c.goalAmount as number) || 0,
-            raisedAmount: (c.raisedAmount as number) || 0,
-            supporterGoal: (c.supporterGoal as number) || 0,
-            supporterCount: (c.supporterCount as number) || 0,
-            startDate: (c.startDate as string) || null,
-          })
-        );
+        const items = (data.items || []) as Record<string, unknown>[];
+        // Prefer featured, then most recent
+        const list: CarouselSlide[] = items.map((c) => ({
+          slug: (c.id as string) || "",
+          title: (c.title as string) || "",
+          summary:
+            ((c.description as string) || (c.content as string) || "").slice(0, 200),
+          imageUrl: (c.imageUrl as string) || null,
+          category: (c.category as string) || "general",
+          date: (c.date as string) || null,
+        }));
         if (cancelled) return;
-        // Sort featured first, then sortOrder
-        list.sort((a, b) => {
-          // Use original order from API (already sorted by sortOrder)
-          return 0;
-        });
-        setCampaigns(list);
+        setSlides(list);
       } catch {
         /* leave empty — fallback UI shows */
       } finally {
@@ -106,17 +104,17 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
   /* ─── Autoplay ─── */
   const goNext = useCallback(() => {
     setDirection(1);
-    setCurrent((prev) => (prev + 1) % Math.max(campaigns.length, 1));
-  }, [campaigns.length]);
+    setCurrent((prev) => (prev + 1) % Math.max(slides.length, 1));
+  }, [slides.length]);
 
   const goPrev = useCallback(() => {
     setDirection(-1);
     setCurrent(
       (prev) =>
-        (prev - 1 + Math.max(campaigns.length, 1)) %
-        Math.max(campaigns.length, 1)
+        (prev - 1 + Math.max(slides.length, 1)) %
+        Math.max(slides.length, 1)
     );
-  }, [campaigns.length]);
+  }, [slides.length]);
 
   const goTo = useCallback(
     (idx: number) => {
@@ -127,66 +125,50 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
   );
 
   useEffect(() => {
-    if (isPaused || campaigns.length < MIN_SLIDES) return;
+    if (isPaused || slides.length < MIN_SLIDES) return;
     timerRef.current = setTimeout(goNext, AUTOPLAY_MS);
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [current, isPaused, campaigns.length, goNext]);
+  }, [current, isPaused, slides.length, goNext]);
 
-  /* ─── Keyboard navigation ─── */
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        goPrev();
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        goNext();
-      } else if (e.key === " ") {
-        e.preventDefault();
-        setIsPaused((p) => !p);
-      }
-    },
-    [goPrev, goNext]
-  );
+  /* ─── Keyboard nav ─── */
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") goPrev();
+    if (e.key === "ArrowRight") goNext();
+  };
 
   /* ─── Loading state ─── */
   if (loading) {
     return (
-      <section className="relative w-full h-[420px] sm:h-[480px] lg:h-[520px] bg-arrc-950 overflow-hidden">
-        <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-arrc-950 via-arrc-900 to-arrc-950" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="h-10 w-10 rounded-full border-2 border-arrc-gold/30 border-t-arrc-gold animate-spin" />
+      <section className="relative w-full h-[440px] sm:h-[500px] lg:h-[560px] bg-arrc-950 overflow-hidden flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-2 border-arrc-gold border-t-transparent mb-4" />
+          <p className="text-white/60 text-sm font-heading">Loading latest news…</p>
         </div>
       </section>
     );
   }
 
   /* ─── Empty state ─── */
-  if (campaigns.length === 0) {
+  if (slides.length === 0) {
     return (
-      <section className="relative w-full h-[360px] sm:h-[420px] bg-gradient-to-br from-arrc-950 via-arrc-900 to-arrc-950 overflow-hidden flex items-center justify-center">
-        <div className="text-center px-6">
-          <Heart className="h-12 w-12 text-arrc-gold/40 mx-auto mb-4" />
-          <p className="text-white/60 font-heading text-lg">
-            Campaigns loading soon
+      <section className="relative w-full h-[440px] sm:h-[500px] lg:h-[560px] bg-gradient-to-br from-arrc-950 via-arrc-900 to-arrc-gold/20 overflow-hidden flex items-center justify-center">
+        <div className="text-center px-4">
+          <Newspaper className="h-12 w-12 text-arrc-gold/50 mx-auto mb-4" />
+          <p className="text-white/60 text-sm font-heading">
+            Latest news coming soon.
           </p>
-          <p className="text-white/40 text-sm mt-1">
-            Check back shortly for active campaigns.
+          <p className="text-white/40 text-xs mt-2">
+            Check back shortly for updates from the movement.
           </p>
         </div>
       </section>
     );
   }
 
-  const active = campaigns[current];
-  const progressPercent =
-    active.goalAmount > 0
-      ? Math.min(100, Math.round((active.raisedAmount / active.goalAmount) * 100))
-      : 0;
-  const cat = CATEGORY_CONFIG[active.category] || CATEGORY_CONFIG.general;
-  const CatIcon = cat.icon;
+  const active = slides[current];
+  const cat = CATEGORY_CONFIG[active.category?.toLowerCase()] || CATEGORY_CONFIG.general;
 
   /* ─── Slide transition variants ─── */
   const slideVariants = {
@@ -214,7 +196,7 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
       tabIndex={0}
       role="region"
       aria-roledescription="carousel"
-      aria-label="ARRC campaigns"
+      aria-label="ARRC latest news"
     >
       {/* ─── Slides ─── */}
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
@@ -269,7 +251,7 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
                 transition={{ delay: 0.15, duration: 0.5 }}
                 className="inline-flex items-center gap-2 rounded-full bg-arrc-gold/15 border border-arrc-gold/30 backdrop-blur-sm px-4 py-1.5 mb-5"
               >
-                <CatIcon className="h-3.5 w-3.5 text-arrc-gold" />
+                <Newspaper className="h-3.5 w-3.5 text-arrc-gold" />
                 <span className="text-xs font-bold tracking-widest uppercase text-arrc-gold font-heading">
                   {cat.label}
                 </span>
@@ -295,43 +277,18 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
                 {active.summary}
               </motion.p>
 
-              {/* Progress bar (campaigns with a goal) */}
-              {active.goalAmount > 0 && (
+              {/* Date */}
+              {active.date && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.45, duration: 0.5 }}
                   className="mb-6 max-w-md"
                 >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-arrc-gold font-bold text-sm font-heading">
-                      {formatRand(active.raisedAmount)}
-                      <span className="text-white/40 font-normal">
-                        {" "}
-                        / {formatRand(active.goalAmount)}
-                      </span>
-                    </span>
-                    <span className="text-white/60 text-sm font-semibold">
-                      {progressPercent}%
-                    </span>
+                  <div className="flex items-center gap-1.5 text-white/50 text-sm">
+                    <Calendar className="h-4 w-4" />
+                    <span>{formatDate(active.date)}</span>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-white/10 overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${progressPercent}%` }}
-                      transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-                      className="h-full rounded-full bg-gradient-to-r from-arrc-gold to-arrc-gold/80"
-                    />
-                  </div>
-                  {active.supporterGoal > 0 && (
-                    <div className="flex items-center gap-1.5 mt-2 text-white/50 text-xs">
-                      <Users className="h-3.5 w-3.5" />
-                      <span>
-                        {active.supporterCount.toLocaleString("en-ZA")} /{" "}
-                        {active.supporterGoal.toLocaleString("en-ZA")} supporters
-                      </span>
-                    </div>
-                  )}
                 </motion.div>
               )}
 
@@ -343,11 +300,11 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
                 className="flex flex-wrap items-center gap-3"
               >
                 <button
-                  onClick={() => onNavigate?.("donate")}
+                  onClick={() => onNavigate?.("news")}
                   className="group/btn inline-flex items-center gap-2 rounded-full bg-arrc-gold px-7 py-3 font-heading font-bold text-arrc-950 transition-all hover:scale-[1.03] hover:shadow-[0_8px_30px_rgba(212,168,67,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arrc-gold focus-visible:ring-offset-2 focus-visible:ring-offset-arrc-950"
                 >
-                  <Heart className="h-4 w-4" />
-                  Support This Campaign
+                  <Newspaper className="h-4 w-4" />
+                  Read More News
                   <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
                 <button
@@ -364,18 +321,18 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
       </AnimatePresence>
 
       {/* ─── Navigation arrows (desktop) ─── */}
-      {campaigns.length >= MIN_SLIDES && (
+      {slides.length >= MIN_SLIDES && (
         <>
           <button
             onClick={goPrev}
-            aria-label="Previous campaign"
+            aria-label="Previous article"
             className="hidden sm:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white transition-all hover:bg-white/20 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arrc-gold"
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
           <button
             onClick={goNext}
-            aria-label="Next campaign"
+            aria-label="Next article"
             className="hidden sm:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white transition-all hover:bg-white/20 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arrc-gold"
           >
             <ArrowRight className="h-5 w-5" />
@@ -386,7 +343,7 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
       {/* ─── Bottom control bar: dots + counter + pause ─── */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
         {/* Autoplay progress bar */}
-        {campaigns.length >= MIN_SLIDES && (
+        {slides.length >= MIN_SLIDES && (
           <div className="h-0.5 w-full bg-white/10">
             <motion.div
               key={`${current}-${isPaused}`}
@@ -404,11 +361,11 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
           {/* Dots */}
           <div className="flex items-center gap-2">
-            {campaigns.map((c, i) => (
+            {slides.map((c, i) => (
               <button
                 key={c.slug}
                 onClick={() => goTo(i)}
-                aria-label={`Go to campaign ${i + 1}: ${c.title}`}
+                aria-label={`Go to article ${i + 1}: ${c.title}`}
                 className="group/dot relative h-2 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arrc-gold focus-visible:ring-offset-2 focus-visible:ring-offset-arrc-950"
                 style={{
                   width: i === current ? 32 : 8,
@@ -431,9 +388,9 @@ export function MarketingCarousel({ onNavigate }: MarketingCarouselProps) {
           <div className="flex items-center gap-3">
             <span className="hidden sm:block text-white/50 text-xs font-heading tabular-nums tracking-wider">
               {String(current + 1).padStart(2, "0")} /{" "}
-              {String(campaigns.length).padStart(2, "0")}
+              {String(slides.length).padStart(2, "0")}
             </span>
-            {campaigns.length >= MIN_SLIDES && (
+            {slides.length >= MIN_SLIDES && (
               <button
                 onClick={() => setIsPaused((p) => !p)}
                 aria-label={isPaused ? "Play autoplay" : "Pause autoplay"}
