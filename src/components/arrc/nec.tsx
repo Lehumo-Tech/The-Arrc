@@ -88,20 +88,21 @@ function getBadgeIcon(badge: string) {
   if (lower.includes("chairperson") || lower.includes("chair")) return Crown;
   if (lower.includes("secretary")) return Swords;
   if (lower.includes("youth")) return Flame;
-  if (lower.includes("treasurer")) return Shield;
+  if (lower.includes("speaker")) return Shield;
   return UserCircle;
 }
 
 /* ─── Get role rank number for display ─── */
 function getRoleRank(badge: string): number | null {
   const lower = badge.toLowerCase();
-  if (lower.includes("president") && !lower.includes("vice") && !lower.includes("youth")) return 1;
-  if (lower.includes("vice president")) return 2;
-  if (lower.includes("chairperson") || lower.includes("chair")) return 3;
-  if (lower.includes("secretary")) return 4;
-  if (lower.includes("youth president")) return 5;
-  if (lower.includes("youth chairperson")) return 6;
-  if (lower.includes("treasurer")) return 7;
+  if (lower.includes("president") && !lower.includes("vice") && !lower.includes("youth") && !lower.includes("deputy")) return 1;
+  if (lower.includes("deputy president")) return 2;
+  if (lower.includes("vice chairperson")) return 3;
+  if (lower.includes("chairperson") || lower.includes("chair")) return 4;
+  if (lower.includes("secretary")) return 5;
+  if (lower.includes("youth president")) return 6;
+  if (lower.includes("youth chairperson")) return 7;
+  if (lower.includes("speaker")) return 8;
   return null;
 }
 
