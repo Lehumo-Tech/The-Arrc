@@ -1,7 +1,7 @@
 /**
  * Auto-seed utility — ensures essential content (NEC leaders, values, FAQs,
  * policies, gallery, videos, documents, events) AND campaigns exist in the
- * local SQLite database. Also restores local image files (treasurer photo)
+ * local SQLite database. Also restores local image files (president, chairperson photos)
  * from the persistent upload folder if they go missing.
  *
  * The sandbox environment periodically resets the SQLite file and deletes
@@ -42,10 +42,6 @@ const LOCAL_ASSETS: Array<{ dest: string; src: string }> = [
   {
     dest: "public/leaders/chairperson.jpeg",
     src: "upload/WhatsApp Image 2026-07-30 at 12.04.22.jpeg",
-  },
-  {
-    dest: "public/leaders/treasurer.jpeg",
-    src: "upload/treasurer-landscape.jpeg",
   },
   {
     dest: "public/campaigns/door-to-door-campaign.jpeg",
@@ -163,7 +159,7 @@ export async function ensureContentSeeded() {
   hasChecked = true;
 
   try {
-    // Restore local image files first (treasurer photo, etc.)
+    // Restore local image files first (president, chairperson photos, etc.)
     restoreLocalImages();
 
     const contentCount = await prisma.contentItem.count();
