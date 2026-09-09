@@ -96,13 +96,14 @@ function getBadgeIcon(badge: string) {
 function getRoleRank(badge: string): number | null {
   const lower = badge.toLowerCase();
   if (lower.includes("president") && !lower.includes("vice") && !lower.includes("youth") && !lower.includes("deputy")) return 1;
+  if (lower.includes("deputy president") && lower.includes("business")) return 3;
   if (lower.includes("deputy president")) return 2;
-  if (lower.includes("vice chairperson")) return 3;
-  if (lower.includes("chairperson") || lower.includes("chair")) return 4;
-  if (lower.includes("secretary")) return 5;
-  if (lower.includes("youth president")) return 6;
-  if (lower.includes("youth chairperson")) return 7;
-  if (lower.includes("speaker")) return 8;
+  if (lower.includes("vice chairperson")) return 4;
+  if (lower.includes("chairperson") || lower.includes("chair")) return 5;
+  if (lower.includes("secretary")) return 6;
+  if (lower.includes("youth president")) return 7;
+  if (lower.includes("youth chairperson")) return 8;
+  if (lower.includes("speaker")) return 9;
   return null;
 }
 
