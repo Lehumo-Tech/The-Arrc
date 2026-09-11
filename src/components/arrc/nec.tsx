@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { fetchContent } from "@/lib/content-client";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Crown, Users, UserCircle, Star, Shield, Flame, Swords, X } from "lucide-react";
+import { Crown, Users, UserCircle, Star, Shield, Flame, Swords, X, Heart } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -85,6 +85,7 @@ function getBadgeIcon(badge: string) {
   const lower = badge.toLowerCase();
   if (lower.includes("president") && !lower.includes("vice") && !lower.includes("youth")) return Star;
   if (lower.includes("vice president")) return Shield;
+  if (lower.includes("women")) return Heart;
   if (lower.includes("chairperson") || lower.includes("chair")) return Crown;
   if (lower.includes("secretary")) return Swords;
   if (lower.includes("youth")) return Flame;
@@ -104,6 +105,7 @@ function getRoleRank(badge: string): number | null {
   if (lower.includes("youth president")) return 7;
   if (lower.includes("youth chairperson")) return 8;
   if (lower.includes("speaker")) return 9;
+  if (lower.includes("women")) return 10;
   return null;
 }
 

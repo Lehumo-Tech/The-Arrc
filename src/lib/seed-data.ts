@@ -58,6 +58,7 @@ export const LEADERS = [
   { title: "Pule Mokwena", subtitle: "Youth President", description: "Pule Mokwena serves as the Youth President of the African Royal Rainbow Congress (ARRC), leading the party's Youth League and championing the voices, aspirations, and political participation of young South Africans. A dynamic organiser and passionate advocate for youth empowerment, President Mokwena has driven the rollout of leadership workshops and community mobilisation programmes across the provinces.", imageUrl: `/leaders/youth-president.png`, featured: false, sortOrder: 7 },
   { title: "Happy Mokoena", subtitle: "Youth Chairperson", description: "Happy Mokoena serves as the Youth Chairperson of the African Royal Rainbow Congress (ARRC), bringing passionate leadership and a relentless drive for youth empowerment.", imageUrl: `/leaders/youth-chairperson.png`, featured: false, sortOrder: 8 },
   { title: "Tenecious Mokholo", subtitle: "National Speaker", description: "Tenecious Mokholo serves as the National Speaker of the African Royal Rainbow Congress (ARRC). As the official voice of the movement, Speaker Mokholo is responsible for articulating the party's vision, policies, and positions to the public, the media, and across all nine provinces. A compelling orator and principled communicator, he ensures that the ARRC's message of transparency, justice, progress, and unity reaches every South African community.", imageUrl: `/leaders/speaker.jpeg`, featured: false, sortOrder: 9 },
+  { title: "Audrey Mokone", subtitle: "National Chairperson of Women's Movement", description: "Audrey Mokone serves as the National Chairperson of the Women's Movement of the African Royal Rainbow Congress (ARRC). A passionate advocate for women's empowerment, equality, and inclusion, Chairperson Mokone leads the party's agenda to uplift women across all nine provinces — ensuring that women's voices shape the ARRC's policies, programmes, and leadership at every level. Her guiding belief: \"Empowering women. Empowering nations. Building a new tomorrow together.\"", imageUrl: `/leaders/womens-movement-chairperson.jpeg`, featured: false, sortOrder: 10 },
 ];
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -150,6 +151,7 @@ export const GALLERY = [
   { title: "Deputy President Campaign Poster — Princess Lobisa Chokwe", description: "ARRC Deputy President / Business Affairs candidate poster. \"Together we build a better tomorrow!\" Vote 04 November 2026.", imageUrl: "/gallery/poster-lobisa-chokwe-deputy-president.jpeg", badge: "Campaign Poster" },
   { title: "Claim Back the Local Economy", description: "ARRC campaign to return township businesses — spaza shops, salons, taverns — to South Africans. Vote ARRC, 04 November 2026.", imageUrl: "/gallery/poster-claim-back-local-economy.jpeg", badge: "Policy Poster" },
   { title: "Take Back Your Power — 6-Point Plan", description: "The ARRC's six-point promise: Education & Skills, Jobs & Growth, Industry & Innovation, South Africans First, Safe & Accountable Governance, Empowering Communities.", imageUrl: "/gallery/poster-take-back-your-power.jpeg", badge: "Manifesto Poster" },
+  { title: "National Chairperson of Women's Movement — Audrey Mokone", description: "ARRC Women's Movement leadership poster. \"Empowering Women. Empowering Nations. Building a New Tomorrow Together.\" Pillars: Women Empowerment, Equality & Inclusion, Unity in Diversity, Leadership & Development.", imageUrl: "/gallery/poster-womens-movement-chairperson.jpeg", badge: "Campaign Poster" },
 ];
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -302,6 +304,17 @@ export const NEWS = [
     date: "2026-09-01",
     featured: true,
     sortOrder: 10,
+  },
+  {
+    title: "ARRC Appoints Audrey Mokone as National Chairperson of Women's Movement",
+    subtitle: "Leadership poster unveiled: \"Empowering Women. Empowering Nations. Building a New Tomorrow Together.\"",
+    description: "The African Royal Rainbow Congress has appointed Audrey Mokone as the National Chairperson of the Women's Movement. The announcement poster carries the slogan \"Empowering Women. Empowering Nations. Building a New Tomorrow Together.\" and outlines four pillars: Women Empowerment, Equality & Inclusion, Unity in Diversity, and Leadership & Development.",
+    content: "Audrey Mokone has been appointed as the National Chairperson of the Women's Movement of the African Royal Rainbow Congress (ARRC), a role that will place her at the forefront of the party's agenda to uplift women across all nine provinces.\n\nThe leadership poster, featuring the ARRC's signature branding, was unveiled as part of the party's broader campaign to ensure women's voices shape the ARRC's policies, programmes, and leadership at every level. It carries the slogan: \"Empowering Women. Empowering Nations. Building a New Tomorrow Together.\"\n\nThe poster outlines four pillars of the Women's Movement:\n\n1. **Women Empowerment** — equipping women with the tools, opportunities, and confidence to lead.\n2. **Equality & Inclusion** — ensuring women are represented and respected in every sphere of society.\n3. **Unity in Diversity** — bringing women together across cultures, languages, and communities.\n4. **Leadership & Development** — building the next generation of women leaders in South Africa.\n\n\"For too long, women have been sidelined in the decisions that shape our nation,\" said Chairperson Mokone. \"The ARRC is here to change that. When we empower women, we empower nations. Together, we are building a new tomorrow.\"\n\nThe ARRC encourages all supporters to share the leadership poster and join the Women's Movement as the party marches toward the 04 November 2026 elections.",
+    imageUrl: "/news/poster-womens-movement-chairperson.jpeg",
+    category: "Campaigns",
+    date: "2026-09-01",
+    featured: true,
+    sortOrder: 11,
   },
 ];
 
